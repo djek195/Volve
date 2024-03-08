@@ -1,0 +1,15 @@
+name: volve
+recipe: wordpress
+config:
+  webroot: .
+  services:
+    pma:
+      type: phpmyadmin
+      scanner: false
+      portforward: false
+      hosts:
+        - database
+  tooling:
+    install-plugins:
+      service: appserver
+      cmd: ./install-plugins.sh

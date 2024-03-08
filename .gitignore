@@ -1,0 +1,16 @@
+/*
+!wp-content/
+!.gitignore
+!.lando.yml
+!install-plugins.sh
+!plugins.txt
+!README.md
+
+wp-content/*
+!wp-content/themes/
+!wp-content/plugins/volve-plus/
+
+wp-content/plugins/*
+
+wp-content/themes/*
+!wp-content/themes/volve/
