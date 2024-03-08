@@ -12,6 +12,7 @@ wp-content/*
 
 wp-content/plugins/*
 wp-content/themes/*
+wp-content/plugins/*/node_modules/
 
 !wp-content/themes/volve/
 !wp-content/plugins/volve-plus/
