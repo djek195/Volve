@@ -8,9 +8,10 @@
 
 wp-content/*
 !wp-content/themes/
-!wp-content/plugins/volve-plus/
+!wp-content/plugins/
 
 wp-content/plugins/*
-
 wp-content/themes/*
+
 !wp-content/themes/volve/
+!wp-content/plugins/volve-plus/
