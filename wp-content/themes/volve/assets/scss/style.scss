@@ -1,0 +1,33 @@
+.header {
+  height: 110px;
+  width: 100%;
+  background-color: #fff;
+
+  &__content {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 60px;
+
+    &--left{
+      display: flex;
+      justify-content: left;
+        align-items: center;
+
+      &-logo {
+        width: 100px;
+        height: 100px;
+        background-color: #000;
+      }
+
+      &-nav {
+        display: flex;
+
+      }
+    }
+  }
+
+
+}

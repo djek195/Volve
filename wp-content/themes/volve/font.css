@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'LotaGrotesque-Regular';
+    src: url('fonts/LotaGrotesque-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*@TODO looking better way for connect fonts */

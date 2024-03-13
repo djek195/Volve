@@ -3,6 +3,7 @@ wp-content/*
 wp-content/plugins/*
 wp-content/plugins/*/node_modules/
 wp-content/themes/*
+wp-content/themes/*/node_modules/
 
 !wp-content/
 !wp-content/themes/
@@ -15,3 +16,4 @@ wp-content/themes/*
 !install-plugins.sh
 !plugins.txt
 !README.md
+!carbon-fields.zip
