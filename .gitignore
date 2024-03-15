@@ -8,6 +8,7 @@ wp-content/themes/*/node_modules/
 !wp-content/
 !wp-content/themes/
 !wp-content/themes/volve/
+!wp-content/themes/volve-theme/
 !wp-content/plugins/
 !wp-content/plugins/volve-plus/
 
