@@ -29,8 +29,8 @@
             </a>
         </div>
         <div class="header__burger">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" class="burger"
-                     alt="Open Menu"/>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" class="burger"
+                 alt="Open Menu"/>
             </a>
         </div>
         <div class="header__content">
@@ -39,16 +39,14 @@
                      alt="Close Menu"/>
             </div>
             <nav class="header__nav">
-                <ul class="header__nav--list">
-                    <li class="header__nav--list-item active"><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
-                    <li class="header__nav--list-item"><a href="<?php echo esc_url(home_url('/benefits')); ?>">Benefits</a>
-                    </li>
-                    <li class="header__nav--list-item"><a href="<?php echo esc_url(home_url('/why')); ?>">Why Volve</a></li>
-                    <li class="header__nav--list-item"><a href="<?php echo esc_url(home_url('/Pricing')); ?>">Pricing</a>
-                    </li>
-                    <li class="header__nav--list-item"><a href="<?php echo esc_url(home_url('/faq')); ?>">FAQ</a></li>
-                    <li class="header__nav--list-item"><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
-                </ul>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'primary',
+                    'menu_id'        => 'primary-menu',
+                    'container' => false,
+                    'menu_class' => 'header__nav--list',
+                ]);
+                ?>
             </nav>
             <div class="header__buttons">
                 <div class="header__buttons--auth">
