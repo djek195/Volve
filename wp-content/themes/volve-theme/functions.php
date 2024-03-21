@@ -1,5 +1,7 @@
 <?php
 
+define('NEW_BLOCKS_THEME_DIR', get_template_directory());
+
 function volve_theme_scripts() {
     // Enqueue reset CSS
     wp_enqueue_style( 'volve-theme-reset', get_template_directory_uri() . '/css/reset.css', array(), '1.0.0', 'all');
@@ -41,6 +43,13 @@ function add_additional_class_on_li($classes, $item)
     return $classes;
 }
 
+function crb_attach_theme_options()
+{
+    require_once __DIR__ . '/inc/carbon-blocks.php';
+}
+
+add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
+
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 10, 2);
 
 add_action('wp_enqueue_scripts', 'enqueue_volve_theme_scripts');
@@ -50,5 +59,3 @@ add_theme_support('menus');
 add_action( 'after_setup_theme', 'my_cool_menu_function' );
 
 add_action( 'wp_enqueue_scripts', 'volve_theme_scripts' );
-
-require get_template_directory() . '/inc/custom-block.php';

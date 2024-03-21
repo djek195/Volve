@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             prevEl: ".swiper__buttons--prev"
         },
     });
-
 });
 
 document.querySelectorAll('.footer__navigation h4').forEach(function(header) {

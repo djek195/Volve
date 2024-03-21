@@ -435,24 +435,173 @@ body {
 
 .swiper {
   width: 100%;
-  height: 100%;
+  min-height: rem(750);
+  background-color: $v-white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__image {
+    width: 100%;
+    max-width: rem(485);
+    object-fit: cover;
+
+    img {
+      width: 100%;
+      padding-right: rem(30);
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    gap: rem(145);
+    padding-top: rem(60);
+
+
+
+    @media (min-width: $breakpoint-xl) {
+      flex-direction: row;
+    }
+  }
+
+  &__text-content {
+    padding: 0 rem(20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+
+    h2 {
+      text-align: center;
+      font-size: rem(30);
+      font-style: normal;
+      font-weight: 275;
+      line-height: rem(30);
+    }
+
+    p {
+      text-align: center;
+      font-size: rem(16);
+      font-style: normal;
+      font-weight: 275;
+      line-height: rem(23);
+    }
+
+    button {
+      margin-top: rem(10);
+      width: rem(280);
+      height: rem(48);
+      background: $v-general;
+      border: 0;
+      border-radius: rem(40);
+      color: $v-white;
+      text-align: center;
+      font-size: rem(18);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: flex;
+
+    @media (min-width: $breakpoint-xl) {
+      transform: rotate(90deg);
+      left: auto;
+      right: rem(60);
+    }
+  }
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+.trial {
+  margin-left: rem(20);
+  margin-right: rem(20);
+  margin-bottom: rem(80);
   display: flex;
   justify-content: center;
-  align-items: center;
+
+  &__wrapper {
+    padding-top: rem(60);
+    padding-bottom: rem(60);
+    border-top: 1px solid $v-border;
+    border-bottom: 1px solid $v-border;
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+    width: 100%;
+    max-width: rem(1420);
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+        width: rem(320);
+        height: rem(48);
+        background: $v-general;
+        border: 0;
+        border-radius: rem(40);
+        color: $v-white;
+        text-align: center;
+        font-size: rem(18);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        @media (min-width: $breakpoint-xl) {
+            width: rem(230);
+            height: rem(54);
+            font-size: rem(20);
+        }
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+
+    h4 {
+      font-size: rem(20);
+      font-style: normal;
+      font-weight: 300;
+      line-height: rem(27);
+
+        @media (min-width: $breakpoint-xl) {
+            font-size: rem(30);
+            font-weight: 275;
+            line-height: rem(37);
+        }
+    }
+
+    p {
+      font-size: rem(16);
+      font-style: normal;
+      font-weight: 275;
+      line-height: rem(23);
+
+        @media (min-width: $breakpoint-xl) {
+            font-size: rem(20);
+        }
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      gap: rem(30);
+    }
+  }
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .separator {
   width: 100%;
