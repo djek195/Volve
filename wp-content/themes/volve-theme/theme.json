@@ -85,16 +85,8 @@
           "custom": false,
           "gradients": [],
           "customGradient": false
-        },
-        "typography": {
-          "fontFamilies": [
-            {
-              "fontFamily": "Lota Grotesque, sans-serif",
-              "slug": "v-grotesque",
-              "name": "Volve Grotesque"
-            }
-          ]
         }
+
       },
       "core/cover": {
         "color": {
@@ -118,7 +110,7 @@
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "Lota Grotesque, sans-serif",
+          "fontFamily": "LotaGrotesque, sans-serif",
           "slug": "v-grotesque",
           "name": "Volve Grotesque"
         }
@@ -201,7 +193,7 @@
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--v-grotesque)",
           "fontSize": "var(--wp--preset--font-size--x-large)",
-          "fontWeight": "normal",
+          "fontWeight": "100",
           "lineHeight": "inherit",
           "textDecoration": "none",
           "textTransform": "none"
@@ -221,7 +213,7 @@
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--v-grotesque)",
           "fontSize": "var(--wp--preset--font-size--medium)",
-          "fontWeight": "normal",
+          "fontWeight": "300",
           "lineHeight": "inherit",
           "textDecoration": "none",
           "textTransform": "none"
@@ -247,7 +239,7 @@
       "fontFamily": "var(--wp--preset--font-family--v-grotesque)",
       "fontSize": "var(--wp--preset--font-size--small)",
       "fontStyle": "normal",
-      "fontWeight": "normal",
+      "fontWeight": "100",
       "lineHeight": "inherit",
       "textDecoration": "none",
       "textTransform": "none"

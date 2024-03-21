@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    const swiper = new Swiper(".swiper-slider", {
-        centeredSlides: true,
+    const swiper = new Swiper('.experience__swiper', {
+        spaceBetween: 60,
+        direction: 'horizontal',
         slidesPerView: 1,
         grabCursor: true,
         freeMode: false,
@@ -22,21 +23,36 @@ document.addEventListener('DOMContentLoaded', function() {
         keyboard: {
             enabled: true
         },
-
-        // Enabled autoplay mode
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false
-        // },
-
-
-        // If we need navigation
         navigation: {
-            nextEl: ".swiper__buttons--next",
-            prevEl: ".swiper__buttons--prev"
+            nextEl: ".experience__swiper--buttons-next",
+            prevEl: ".experience__swiper--buttons-prev"
+        },
+        breakpoints: {
+            655: {
+                direction: 'vertical',
+            },
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
         },
     });
 
+    const relatedSwiper = new Swiper('.related__slider', {
+        spaceBetween: 60,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+            650: {
+                slidesPerView: 2,
+            },
+            991: {
+                slidesPerView: 3,
+            },
+        },
+    });
 });
 
 document.querySelectorAll('.footer__navigation h4').forEach(function(header) {
@@ -44,4 +60,18 @@ document.querySelectorAll('.footer__navigation h4').forEach(function(header) {
         this.parentNode.classList.toggle('open');
     });
 });
+
+document.querySelectorAll('.tabs__tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const index = tab.dataset.tab;
+
+        document.querySelectorAll('.tabs__tab, .tabs__content').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        document.querySelector(`.tabs__tab[data-tab="${index}"]`).classList.add('active');
+        document.querySelector(`.tabs__content[data-tab="${index}"]`).classList.add('active');
+    });
+});
+
 
