@@ -14,56 +14,18 @@
     </div>
     <div class="swiper experience__swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide experience__swiper--slide">
-                <div class="experience__swiper--slide-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/search-phone.png" alt="Swiper">
+            <?php foreach ($fields['crb_slider'] as $slide): ?>
+                <div class="swiper-slide experience__swiper--slide">
+                    <div class="experience__swiper--slide-image">
+                        <?= wp_get_attachment_image($slide['image'], 'full', false); ?>
+                    </div>
+                    <div class="experience__swiper--slide-description">
+                        <h3><?= $slide['title']; ?></h3>
+                        <p><?= $slide['description']; ?></p>
+                        <button>Explore Features</button>
+                    </div>
                 </div>
-                <div class="experience__swiper--slide-description">
-                    <h3>Responsible Spending</h3>
-                    <p>Employees are in control of authorized budgets</p>
-                    <button>Explore Features</button>
-                </div>
-            </div>
-            <div class="swiper-slide experience__swiper--slide">
-                <div class="experience__swiper--slide-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide2.png" alt="Swiper">
-                </div>
-                <div class="experience__swiper--slide-description">
-                    <h3>Everywhere, Anywhere</h3>
-                    <p>Approve expenses and manage budgets on-the-go</p>
-                    <button>Explore Features</button>
-                </div>
-            </div>
-            <div class="swiper-slide experience__swiper--slide">
-                <div class="experience__swiper--slide-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide3.png" alt="Swiper">
-                </div>
-                <div class="experience__swiper--slide-description">
-                    <h3>Connected Overview</h3>
-                    <p>Approve expenses and manage budgets on-the-go</p>
-                    <button>Explore Features</button>
-                </div>
-            </div>
-            <div class="swiper-slide experience__swiper--slide">
-                <div class="experience__swiper--slide-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide4.png" alt="Swiper">
-                </div>
-                <div class="experience__swiper--slide-description">
-                    <h3>Visibility and Control</h3>
-                    <p>Complete and accurate view of company-wide spending in real-time</p>
-                    <button>Explore Features</button>
-                </div>
-            </div>
-            <div class="swiper-slide experience__swiper--slide">
-                <div class="experience__swiper--slide-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/search-phone.png" alt="Swiper">
-                </div>
-                <div class="experience__swiper--slide-description">
-                    <h3>Fast and Painless</h3>
-                    <p>Finance reconciliations become an effortless exercise</p>
-                    <button>Explore Features</button>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="experience__swiper--buttons">
             <img class="experience__swiper--buttons-prev"

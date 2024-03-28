@@ -6,6 +6,8 @@ use Carbon_Fields\Field;
 Block::make(__('Start'))
     ->add_fields(
         [
+            Field::make('text', 'title', __('Title')),
+            Field::make('text', 'description', __('Description')),
             Field::make('image', 'image_desktop', __('Image Desktop'))
                 ->set_value_type('url'),
             Field::make('image', 'image_mobile', __('Image Mobile'))
