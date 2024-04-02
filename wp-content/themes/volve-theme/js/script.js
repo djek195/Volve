@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 direction: 'vertical',
             },
         },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-        },
+        // autoplay: {
+        //     delay: 3000,
+        //     disableOnInteraction: false
+        // },
     });
 
     const relatedSwiper = new Swiper('.related__slider', {
@@ -61,17 +61,39 @@ document.querySelectorAll('.footer__navigation h4').forEach(function(header) {
     });
 });
 
-document.querySelectorAll('.tabs__tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        const index = tab.dataset.tab;
+const dropdowns = document.querySelectorAll('.cross-functional__dropdown');
 
-        document.querySelectorAll('.tabs__tab, .tabs__content').forEach(el => {
-            el.classList.remove('active');
+dropdowns.forEach(dropdown => {
+    const selectButton = dropdown.querySelector('.select');
+    const caretIcon = dropdown.querySelector('.caret');
+    const menu = dropdown.querySelector('.cross-functional__dropdown--menu');
+    const options = dropdown.querySelectorAll('.cross-functional__dropdown--menu li');
+    const selectedOption = dropdown.querySelector('.selected');
+
+    selectButton.addEventListener('click', () => {
+        menu.classList.toggle('select-clicked');
+        caretIcon.classList.toggle('caret-rotate');
+        menu.classList.toggle('cross-functional__dropdown--menu-open');
+    });
+
+    options.forEach((option, index) => {
+        option.addEventListener('click', () => {
+            selectedOption.innerText = option.innerText;
+            selectButton.classList.remove('select-clicked');
+            caretIcon.classList.remove('caret-rotate');
+            menu.classList.remove('cross-functional__dropdown--menu-open');
+
+            options.forEach(opt => {
+                opt.classList.remove('active');
+            });
+
+            option.classList.add('active');
+
+            const contentItems = document.querySelectorAll('.cross-functional__content--element');
+            contentItems.forEach(content => {
+                content.classList.remove('active');
+            });
+            contentItems[index].classList.add('active');
         });
-
-        document.querySelector(`.tabs__tab[data-tab="${index}"]`).classList.add('active');
-        document.querySelector(`.tabs__content[data-tab="${index}"]`).classList.add('active');
     });
 });
-
-

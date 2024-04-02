@@ -20,7 +20,7 @@
                         <?= wp_get_attachment_image($slide['image'], 'full', false); ?>
                     </div>
                     <div class="experience__swiper--slide-description">
-                        <h3><?= $slide['title']; ?></h3>
+                        <?= $slide['title']; ?>
                         <p><?= $slide['description']; ?></p>
                         <button>Explore Features</button>
                     </div>
