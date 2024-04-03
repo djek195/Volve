@@ -4,6 +4,7 @@ $files = scandir(NEW_BLOCKS_THEME_DIR . '/inc/blocks');
 $blocks = [
     'CrossFunctionalTabs',
     'ExperienceSlider',
+    'FAQ',
     'FooterImage',
     'Offers',
     'Pricing',
@@ -11,6 +12,7 @@ $blocks = [
     'RelatedArticlesSlider',
     'Start',
     'Trial',
+    'TrialBanner',
 ];
 
 foreach ($blocks as $block) {

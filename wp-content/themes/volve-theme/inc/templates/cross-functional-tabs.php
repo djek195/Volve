@@ -8,12 +8,12 @@
 <div class="cross-functional">
     <div class="cross-functional__wrapper">
         <h1 class="cross-functional__title"><?= $fields['title'] ?></h1>
-        <div class="cross-functional__dropdown">
+        <div class="tab__dropdown">
             <div class="select">
                 <span class="selected"><?= $fields['crb_slider'][0]['tab_title'] ?> </span>
                 <div class="caret"></div>
             </div>
-            <ul class="cross-functional__dropdown--menu">
+            <ul class="tab__dropdown--menu">
                 <?php foreach ($fields['crb_slider'] as $key => $slide): ?>
                     <li class="<?= $key === 0 ? 'active' : '' ?>" data-tab="<?= $key ?>"><?= $slide['tab_title'] ?></li>
                 <?php endforeach; ?>
@@ -21,7 +21,7 @@
         </div>
         <div class="cross-functional__content">
             <?php foreach ($fields['crb_slider'] as $key => $slide): ?>
-                <div class="cross-functional__content--element <?= $key === 0 ? 'active' : '' ?>"
+                <div class="cross-functional__content--element tab__content <?= $key === 0 ? 'active' : '' ?>"
                      data-tab="<?= $key ?>">
                     <div class="cross-functional__content--image">
                         <?= wp_get_attachment_image($slide['tab_image'], 'full', false); ?>

@@ -61,19 +61,26 @@ document.querySelectorAll('.footer__navigation h4').forEach(function(header) {
     });
 });
 
-const dropdowns = document.querySelectorAll('.cross-functional__dropdown');
+const faqElements = document.querySelectorAll('.faq__content--text');
+faqElements.forEach(el => {
+    el.addEventListener('click', () => {
+        el.classList.toggle('open');
+    });
+})
+
+const dropdowns = document.querySelectorAll('.tab__dropdown');
 
 dropdowns.forEach(dropdown => {
     const selectButton = dropdown.querySelector('.select');
     const caretIcon = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.cross-functional__dropdown--menu');
-    const options = dropdown.querySelectorAll('.cross-functional__dropdown--menu li');
+    const menu = dropdown.querySelector('.tab__dropdown--menu');
+    const options = dropdown.querySelectorAll('.tab__dropdown--menu li');
     const selectedOption = dropdown.querySelector('.selected');
 
     selectButton.addEventListener('click', () => {
         menu.classList.toggle('select-clicked');
         caretIcon.classList.toggle('caret-rotate');
-        menu.classList.toggle('cross-functional__dropdown--menu-open');
+        menu.classList.toggle('tab__dropdown--menu-open');
     });
 
     options.forEach((option, index) => {
@@ -81,7 +88,7 @@ dropdowns.forEach(dropdown => {
             selectedOption.innerText = option.innerText;
             selectButton.classList.remove('select-clicked');
             caretIcon.classList.remove('caret-rotate');
-            menu.classList.remove('cross-functional__dropdown--menu-open');
+            menu.classList.remove('tab__dropdown--menu-open');
 
             options.forEach(opt => {
                 opt.classList.remove('active');
@@ -89,7 +96,7 @@ dropdowns.forEach(dropdown => {
 
             option.classList.add('active');
 
-            const contentItems = document.querySelectorAll('.cross-functional__content--element');
+            const contentItems = document.querySelectorAll('.tab__content');
             contentItems.forEach(content => {
                 content.classList.remove('active');
             });
