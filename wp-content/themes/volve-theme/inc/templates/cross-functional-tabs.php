@@ -7,7 +7,8 @@
 ?>
 <div class="cross-functional">
     <div class="cross-functional__wrapper">
-        <h1 class="cross-functional__title"><?= $fields['title'] ?></h1>
+<!--        --><?php //= '<h1 class="cross-functional__title">' . implode('<br>', $title_sentences) . '</h1>'; ?>
+        <h1 class="cross-functional__title"><?= split_sentences(get_the_title()) ?></h1>
         <div class="tab__dropdown">
             <div class="select">
                 <span class="selected"><?= $fields['crb_slider'][0]['tab_title'] ?> </span>
@@ -27,12 +28,19 @@
                         <?= wp_get_attachment_image($slide['tab_image'], 'full', false); ?>
                     </div>
                     <div class="cross-functional__content--text">
-                        <?php foreach ($slide['crb_slider'] as $benefit): ?>
-                            <div class="cross-functional__content--text-step">
-                                <h3><?= $benefit['benefit_title'] ?></h3>
-                                <p><?= $benefit['benefit_description'] ?></p>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php
+                        if (!empty($slide['tab_title'])) {
+                            echo '<h2>' . $slide['tab_title'] . '</h2>';
+                        }
+                        ?>
+                        <div class="cross-functional__content--text-container">
+                            <?php foreach ($slide['crb_slider'] as $benefit): ?>
+                                <div class="cross-functional__content--text-step">
+                                    <h3><?= $benefit['benefit_subtitle'] ?></h3>
+                                    <p> <?= split_sentences($benefit['benefit_description']) ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                         <button class="cross-functional__content--button">Try free for 30 days</button>
                     </div>
                 </div>

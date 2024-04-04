@@ -48,6 +48,11 @@ function crb_attach_theme_options()
     require_once __DIR__ . '/inc/carbon-blocks.php';
 }
 
+function split_sentences($text) {
+    $sentences = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $text);
+    return implode('<br>', $sentences);
+}
+
 add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
 
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 10, 2);

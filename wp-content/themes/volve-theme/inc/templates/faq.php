@@ -4,13 +4,11 @@
  * @var array $attributes , an array with the attributes of the block like custom CSS class, alignment, etc.
  * @var string $inner_blocks , a string with the content of all nested blocks.
  */
-$title = get_the_title();
-$title_sentences = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $title);
 ?>
 
 <section class="faq">
     <div class="faq__wrapper">
-        <?= '<h1 class="faq__title">' . implode('<br>', $title_sentences) . '</h1>'; ?>
+        <h1 class="faq__title"><?= split_sentences(get_the_title()) ?></h1>
         <div class="tab__dropdown">
             <div class="select">
                 <span class="selected"><?= $fields['crb_slider'][0]['tab_title'] ?> </span>

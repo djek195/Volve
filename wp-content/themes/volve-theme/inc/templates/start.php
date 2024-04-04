@@ -8,7 +8,7 @@
 
 <section class="home__wrapper">
     <div class="home__main--content">
-        <h1 class="home__main--content-title"><?= $fields["title"] ?></h1>
+        <h1 class="home__main--content-title"><?= split_sentences(get_the_title()) ?></h1>
         <p class="home__main--content-description"><?= $fields["description"] ?></p>
         <div class="home__main--content-buttons">
             <button>Try free for 30 days</button>

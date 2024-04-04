@@ -1122,6 +1122,27 @@ body {
       flex-direction: column;
       gap: rem(30);
 
+      h2 {
+        font-size: rem(30);
+        font-weight: 275;
+        line-height: rem(37);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(60);
+          line-height: rem(67);
+        }
+      }
+
+      &-container {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30);
+
+        @media (min-width: $breakpoint-xl) {
+          gap: rem(40);
+        }
+      }
+
       &-step {
         display: flex;
         flex-direction: column;
@@ -1142,7 +1163,6 @@ body {
           font-size: rem(14);
           font-weight: 300;
           line-height: rem(21);
-          white-space: pre-line;
 
           @media (min-width: $breakpoint-xl) {
             font-size: rem(16);
@@ -1207,15 +1227,15 @@ body {
   &__content {
     width: 100%;
 
-  &--element {
-    display: flex;
-    flex-direction: column;
-    gap: rem(20);
+    &--element {
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
 
-    @media (min-width: $breakpoint-xl) {
-      gap: rem(30);
+      @media (min-width: $breakpoint-xl) {
+        gap: rem(30);
+      }
     }
-  }
 
     &--text {
       display: flex;
@@ -1246,9 +1266,9 @@ body {
         p {
           margin-bottom: rem(16);
 
-            @media (min-width: $breakpoint-xl) {
-                margin-bottom: rem(14);
-            }
+          @media (min-width: $breakpoint-xl) {
+            margin-bottom: rem(14);
+          }
         }
       }
 
@@ -1301,7 +1321,7 @@ body {
     width: 100%;
     max-width: rem(320);
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-xxl) {
       max-width: none;
     }
 
@@ -1317,7 +1337,7 @@ body {
       justify-content: space-between;
       align-items: center;
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-xxl) {
         display: none;
 
       }
@@ -1348,12 +1368,12 @@ body {
       z-index: 1;
       border: 1px solid $v-general;
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-xxl) {
         max-width: none;
         color: $v-gray;
         display: flex;
         justify-content: center;
-        gap: rem(60);
+        gap: rem(43);
         opacity: 1;
         background: none;
         position: relative;
@@ -1365,8 +1385,9 @@ body {
         font-size: rem(18);
         font-weight: 400;
         padding: rem(13) rem(20) rem(12) rem(20);
+        white-space: nowrap;
 
-        @media (min-width: $breakpoint-md) {
+        @media (min-width: $breakpoint-xxl) {
           padding: rem(0) rem(10) rem(2) rem(8);
         }
 
@@ -1378,7 +1399,7 @@ body {
           background: $v-general;
           color: $v-white;
 
-          @media (min-width: $breakpoint-md) {
+          @media (min-width: $breakpoint-xxl) {
             background: none;
             color: $v-general;
           }
@@ -1390,7 +1411,7 @@ body {
         background: $v-general;
         color: $v-white;
 
-        @media (min-width: $breakpoint-md) {
+        @media (min-width: $breakpoint-xxl) {
           background: none;
           color: $v-general;
           border-bottom: 1px solid $v-general;
