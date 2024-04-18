@@ -10,17 +10,17 @@
     <h2 class="related__title"><?= $fields['title'] ?></h2>
     <div class="swiper related__slider">
         <div class="swiper-wrapper">
-            <?php foreach ($fields['crb_slider'] as $slide): ?>
+            <?php foreach ($fields['posts'] as $post): ?>
                 <div class="related__slide swiper-slide">
                     <div class="related__slide--image">
-                        <?php echo wp_get_attachment_image($slide['image'], 'full') ?>
+                        <?php echo get_the_post_thumbnail($post->ID, 'full') ?>
                     </div>
                     <div class="related__slide--text-content">
                         <p class="related__slide--text-content-category">
-                            <?= $slide['category'] ?></p>
-                        <h3 class="related__slide--text-content-title"><?= $slide['title'] ?></h3>
-                        <p class="related__slide--text-content-description"><?= $slide['description'] ?></p>
-                        <a href="<?= $slide['url'] ?>">Read more</a>
+                            <?= get_the_category($post->ID)[0]->cat_name ?></p>
+                        <h3 class="related__slide--text-content-title"><?= $post->post_title ?></h3>
+                        <p class="related__slide--text-content-description"><?= $post->post_excerpt ?></p>
+                        <a href="<?= get_permalink($post->ID) ?>">Read more</a>
                     </div>
                 </div>
             <?php endforeach; ?>
