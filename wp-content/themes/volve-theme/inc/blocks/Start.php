@@ -8,10 +8,7 @@ Block::make(__('Start'))
         [
             Field::make('text', 'title', __('Title')),
             Field::make('text', 'description', __('Description')),
-            Field::make('image', 'image_desktop', __('Image Desktop'))
-                ->set_value_type('url'),
-            Field::make('image', 'image_mobile', __('Image Mobile'))
-                ->set_value_type('url'),
+            Field::make('image', 'image', __('Image')),
             Field::make('text', 'image_alt', __('Alt Text')),
         ]
     )

@@ -15,9 +15,7 @@
             <a href="#l" class="home__main--content-button" data-fancybox>Learn more</a>
         </div>
     </div>
-    <picture class="home__main--image">
-        <source media="(min-width: 2000px)" type="image/webp" srcset="<?= $fields['image_desktop'] ?>">
-        <img src=" <?= $fields['image_mobile']; ?>" loading="lazy" decoding="async" alt="<?= $fields['image_alt'] ?>"
-             fetchpriority=" high">
-    </picture>
+    <div class="home__main--image">
+        <?= wp_get_attachment_image($fields['image'], 'full', false); ?>
+    </div>
 </section>
