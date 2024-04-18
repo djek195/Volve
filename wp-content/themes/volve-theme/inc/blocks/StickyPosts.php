@@ -15,5 +15,5 @@ Block::make(__('Sticky Posts'))
             ))
     ))
     ->set_render_callback(function ($fields, $attributes, $inner_blocks) {
-        custom_block_render('sticky-posts', $fields, $attributes, $inner_blocks-);
+        custom_block_render('sticky-posts', $fields, $attributes, $inner_blocks);
     });
