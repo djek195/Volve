@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const relatedSwiper = new Swiper('.related__slider', {
         spaceBetween: 60,
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
+            nextEl: ".related__slide--buttons-next",
+            prevEl: ".related__slide--buttons-prev"
         },
         breakpoints: {
             650: {
