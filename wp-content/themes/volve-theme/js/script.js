@@ -1,13 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const burger = document.querySelector('.header__burger');
     const headerContent = document.querySelector('.header__content');
     const closeModal = document.querySelector('.header__close');
 
-    burger.addEventListener('click', function() {
+    burger.addEventListener('click', function () {
         headerContent.classList.add('active');
     });
 
-    closeModal.addEventListener('click', function() {
+    closeModal.addEventListener('click', function () {
         headerContent.classList.remove('active');
     });
 
@@ -53,10 +53,61 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         },
     });
+
+    const stickyPostsSwiper = new Swiper('.blog__sticky--posts', {
+        spaceBetween: 20,
+        loop: true,
+        // direction: 'horizontal',
+        slidesPerView: 1,
+        navigation: {
+            nextEl: ".blog__sticky--posts-buttons-next",
+            prevEl: ".blog__sticky--posts-buttons-prev"
+        },
+    });
+
+    const readMoreSwiper = new Swiper('.read-more__slider', {
+        spaceBetween: 30,
+        loop: true,
+        slidesPerView: 1,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+            650: {
+                slidesPerView: 2,
+            },
+            991: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    const categoriesSwipers = document.querySelectorAll('.categories__category');
+
+    categoriesSwipers.forEach((swiper, index) => {
+        new Swiper(swiper, {
+            spaceBetween: 30,
+            loop: false,
+            slidesPerView: 1,
+            navigation: {
+                nextEl: `.categories__buttons-next-${index}`,
+                prevEl: `.categories__buttons-prev-${index}`
+            },
+            breakpoints: {
+                650: {
+                    slidesPerView: 2,
+                },
+                991: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    });
 });
 
-document.querySelectorAll('.footer__navigation h4').forEach(function(header) {
-    header.addEventListener('click', function() {
+document.querySelectorAll('.footer__navigation h4').forEach(function (header) {
+    header.addEventListener('click', function () {
         this.parentNode.classList.toggle('open');
     });
 });
@@ -103,4 +154,55 @@ dropdowns.forEach(dropdown => {
             contentItems[index].classList.add('active');
         });
     });
+});
+
+const privilegesDropdowns = document.querySelectorAll('.privileges__tabs');
+
+privilegesDropdowns.forEach(dropdown => {
+    const selectButton = dropdown.querySelector('.privileges__tabs--select');
+    const menu = dropdown.querySelector('.privileges__tabs--menu');
+    const caret = dropdown.querySelector('.privileges__tabs--caret');
+    const selected = dropdown.querySelector('.privileges__tabs--selected');
+    const listItems = dropdown.querySelectorAll('.privileges__tabs--menu li');
+
+    selectButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        caret.classList.toggle('rotate');
+    });
+
+    listItems.forEach((item, index) => {
+        item.addEventListener('click', function () {
+            listItems.forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+            selected.textContent = this.textContent;
+            menu.classList.remove('open');
+            caret.classList.remove('rotate');
+        });
+    });
+});
+
+
+
+let page = 1; // keep track of current page
+
+document.querySelector('.archive__button button').addEventListener('click', function () {
+    page++; // increment page count
+    fetch(`${window.location.origin}/wp-admin/admin-ajax.php?action=load_more_posts&page=${page}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            if (data) {
+                document.querySelector('.archive__content').innerHTML += data;
+            } else {
+                // hide the load more button if there are no more posts
+                document.querySelector('.archive__button').style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
 });
