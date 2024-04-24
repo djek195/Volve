@@ -8,8 +8,8 @@ Block::make(__('Cross-Functional Tabs', 'practice'))
         [
             Field::make('complex', 'crb_slider', __('Cross-Functional Tabs'))
                 ->add_fields(array(
-                    Field::make('text', 'tab_title', __('Slide Title')),
-                    Field::make('image', 'tab_image', __('Slide Image')),
+                    Field::make('text', 'tab_title', __('Tab Title')),
+                    Field::make('image', 'tab_image', __('Tab Image')),
                     Field::make('text', 'benefit_title', __('Benefit Title')),
                     Field::make('complex', 'crb_slider', __('Benefits'))
                         ->add_fields(array(

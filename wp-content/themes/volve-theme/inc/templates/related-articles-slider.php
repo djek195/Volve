@@ -13,14 +13,14 @@
             <?php foreach ($fields['posts'] as $post): ?>
                 <div class="related__slide swiper-slide">
                     <div class="related__slide--image">
-                        <?php echo get_the_post_thumbnail($post->ID, 'full') ?>
+                        <?= get_the_post_thumbnail($post->ID, 'thumbnail-image-md') ?>
                     </div>
                     <div class="related__slide--text-content">
                         <p class="related__slide--text-content-category">
                             <?= get_the_category($post->ID)[0]->cat_name ?></p>
                         <h3 class="related__slide--text-content-title"><?= $post->post_title ?></h3>
                         <p class="related__slide--text-content-description"><?= $post->post_excerpt ?></p>
-                        <a href="<?= get_permalink($post->ID) ?>">Read more</a>
+                        <a class="related__slide--text-content-link" href="<?= get_permalink($post->ID) ?>">Read more</a>
                     </div>
                 </div>
             <?php endforeach; ?>

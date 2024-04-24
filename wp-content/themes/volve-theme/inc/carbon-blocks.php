@@ -2,15 +2,20 @@
 $files = scandir(NEW_BLOCKS_THEME_DIR . '/inc/blocks');
 
 $blocks = [
+    'BlogHeader',
+    'Categories',
     'CrossFunctionalTabs',
     'ExperienceSlider',
     'FAQ',
     'FooterImage',
+    'LatestPosts',
     'Offers',
     'Pricing',
     'PrivilegesTabs',
+    'ReadMore',
     'RelatedArticlesSlider',
     'Start',
+    'StickyPosts',
     'Trial',
     'TrialBanner',
 ];

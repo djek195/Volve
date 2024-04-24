@@ -6,11 +6,13 @@ use Carbon_Fields\Field;
 Block::make(__('Offers'))
     ->add_fields(
         [
-            Field::make('image', 'image_desktop', __('Image Desktop'))
-                ->set_value_type('url'),
-            Field::make('image', 'image_mobile', __('Image Mobile'))
-                ->set_value_type('url'),
-            Field::make('text', 'image_alt', __('Alt Text')),
+            Field::make('text', 'title', __('Offers Title')),
+            Field::make('complex', 'crb_slider', __('Offers List'))
+                ->add_fields(array(
+                    Field::make('image', 'offer_image', __('Tab Icon')),
+                    Field::make('text', 'offer_title', __('Offer Title')),
+                    Field::make('text', 'offer_description', __('Benefit Title')),
+                ))->set_layout('tabbed-horizontal')
         ]
     )
     ->set_render_callback(function ($fields, $attributes, $inner_blocks) {

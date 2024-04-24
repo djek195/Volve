@@ -13,7 +13,7 @@
             <?php foreach ($fields['posts'] as $post): ?>
                 <div class="read-more__slide swiper-slide">
                     <div class="read-more__slide--image">
-                        <?php echo get_the_post_thumbnail($post->ID, 'full') ?>
+                        <?php echo get_the_post_thumbnail($post->ID, 'thumbnail-image-sm') ?>
                     </div>
                     <div class="read-more__slide--text-content">
                         <h3 class="read-more__slide--text-content-title"><?= $post->post_title ?></h3>

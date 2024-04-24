@@ -32,10 +32,5 @@
             <button class="trial-banner__main--button">Try free for 30 days
             </button>
         </div>
-        <picture class="trial-banner__main--image">
-            <source media="(min-width: 781px)" type="image/webp" srcset="<?= $fields['image_desktop'] ?>">
-            <img src=" <?= $fields['image_mobile']; ?>" loading="lazy" decoding="async" alt="<?= $fields['image_alt'] ?>"
-                 fetchpriority=" high">
-        </picture>
     </div>
 </section>

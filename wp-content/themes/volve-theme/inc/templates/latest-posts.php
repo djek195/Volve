@@ -1,7 +1,6 @@
 <div class="blog__content-block">
-    <h2><?php echo esc_html($fields['title']); ?></h2>
+    <h2><?= esc_html($fields['title']); ?></h2>
     <?php
-    // Get latest posts
     $query = new WP_Query(array(
         'posts_per_page' => $fields['number_of_posts'],
         'ignore_sticky_posts' => true
@@ -18,7 +17,7 @@
                         ?>
                         <div class="blog__last-posts--post-image">
                             <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail(); ?>
+                                <?php the_post_thumbnail('thumbnail-image-xl'); ?>
                             </a>
                         </div>
                         <?php
@@ -26,26 +25,26 @@
                     ?>
                     <div class="blog__last-posts--post-title">
                         <p>
-                            <a href="<?php echo esc_url(get_category_link(get_the_category(get_post()->ID)[0]->term_id)); ?>">
-                                <?php echo esc_html(get_the_category(get_post()->ID)[0]->name); ?>
+                            <a href="<?= esc_url(get_category_link(get_the_category(get_post()->ID)[0]->term_id)); ?>">
+                                <?= esc_html(get_the_category(get_post()->ID)[0]->name); ?>
                             </a>
                         </p>
-                        <h4><a href="<?php echo esc_url(get_permalink()); ?>"><?php the_title(); ?></a>
+                        <h4><a href="<?= esc_url(get_permalink()); ?>"><?php the_title(); ?></a>
                         </h4>
                     </div>
                     <div class="blog__last-posts--post-description">
-                        <p><?php echo get_the_excerpt(); ?></p>
+                        <p><?= get_the_excerpt(); ?></p>
                     </div>
-                    <div class="author">
-                        <div class="author__avatar">
-                            <?php echo get_avatar(get_the_author_meta('ID')); ?>
+                    <div class="author-block">
+                        <div class="author-block__avatar">
+                            <?= get_avatar(get_the_author_meta('ID')); ?>
                         </div>
-                        <div class="author__name">
-                            <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-                                <?php echo esc_html(get_the_author()); ?>
+                        <div class="author-block__name">
+                            <a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
+                                <?= esc_html(get_the_author()); ?>
                             </a>
-                            <p class="author__bio">
-                                <?php echo esc_html(get_the_author_meta('description')); ?>
+                            <p class="author-block__bio">
+                                <?= esc_html(carbon_get_user_meta(get_the_author_meta('ID'), 'author_jobtitle')); ?>
                             </p>
                         </div>
                     </div>
