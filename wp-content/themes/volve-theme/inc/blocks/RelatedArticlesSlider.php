@@ -11,10 +11,8 @@ Block::make(__('Related Articles Slider'))
     )
     ->set_render_callback(function ($fields, $attributes, $inner_blocks) {
         $args = array(
-            'post_type' => 'post',
             'posts_per_page' => 3,
-            'order' => 'DESC',
-            'orderby' => 'date'
+            'ignore_sticky_posts' => true,
         );
 
         $query = new WP_Query($args);
