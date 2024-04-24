@@ -23,10 +23,30 @@
 <header class="header">
     <div class="header__wrapper">
         <div class="header__logo">
-            <a href="<?php echo esc_url(home_url('/')); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/volve-logo.svg" class="logo"
-                     alt="Volve Logo"/>
+            <a class="header__logo--link" href="<?php echo esc_url(home_url('/')); ?>">
+                <?php
+                $svg_content = file_get_contents(get_template_directory_uri() . '/assets/images/volve-logo.svg');
+                echo $svg_content;
+                ?>
             </a>
+        </div>
+
+        <div class="header__desktop">
+            <nav class="header__desktop--nav">
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'primary',
+                    'menu_id' => 'primary-menu',
+                    'container' => false,
+                    'menu_class' => 'header__desktop--nav-list',
+                ]);
+                ?>
+            </nav>
+            <div class="header__desktop--buttons">
+                <div class="header__desktop--demo">
+                    <button>Try free for 30 days</button>
+                </div>
+            </div>
         </div>
         <div class="header__burger">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" class="burger"
@@ -42,7 +62,7 @@
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'primary',
-                    'menu_id'        => 'primary-menu',
+                    'menu_id' => 'primary-menu',
                     'container' => false,
                     'menu_class' => 'header__nav--list',
                 ]);
