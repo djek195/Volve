@@ -183,26 +183,44 @@ privilegesDropdowns.forEach(dropdown => {
 
 
 
-let page = 1; // keep track of current page
+// let page = 1; // keep track of current page
 
-document.querySelector('.archive__button button').addEventListener('click', function () {
-    page++; // increment page count
-    fetch(`${window.location.origin}/wp-admin/admin-ajax.php?action=load_more_posts&page=${page}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(data => {
-            if (data) {
-                document.querySelector('.archive__content').innerHTML += data;
-            } else {
-                // hide the load more button if there are no more posts
-                document.querySelector('.archive__button').style.display = 'none';
-            }
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
+// document.querySelector('.archive__button button').addEventListener('click', function () {
+//     page++; // increment page count
+//     fetch(`${window.location.origin}/wp-admin/admin-ajax.php?action=load_more_posts&page=${page}`)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.text();
+//         })
+//         .then(data => {
+//             if (data) {
+//                 document.querySelector('.archive__content').innerHTML += data;
+//             } else {
+//                 // hide the load more button if there are no more posts
+//                 document.querySelector('.archive__button').style.display = 'none';
+//             }
+//         })
+//         .catch(error => {
+//             console.error('There has been a problem with your fetch operation:', error);
+//         });
+// });
+
+
+let privilegesTabs = document.querySelectorAll('.privileges__tabs--menu li');
+let privilegesSubtitle = document.querySelector('.privileges__content--subtitles-item_desktop');
+let privilegesLists = document.querySelectorAll('.privileges__content--list');
+
+privilegesTabs.forEach((tab, index) => {
+    tab.addEventListener(('click'), () => {
+        privilegesSubtitle.textContent = tab.textContent;
+
+        privilegesLists.forEach(list => {
+            list.style.display = 'none';
         });
+
+        let list = document.querySelector('.privileges__content--list[data-tab="' + index + '"]');
+        list.style.display = '';
+    });
 });
