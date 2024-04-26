@@ -15,7 +15,7 @@ $selectedTab = esc_html($fields['crb_tab'][0]['tab_title']);
         <div class="privileges__content">
             <div class="privileges__tabs">
                 <div class="privileges__tabs--select">
-                    <span class="privileges__tabs--selected">Corporate Credit Card</span>
+                    <span class="privileges__tabs--selected"><?= $selectedTab ?></span>
                     <div class="privileges__tabs--caret"></div>
                 </div>
                 <ul class="privileges__tabs--menu">
@@ -25,7 +25,7 @@ $selectedTab = esc_html($fields['crb_tab'][0]['tab_title']);
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <div class="privileges__content--element tab__content active" data-tab="0">
+            <div class="privileges__content--element tab__content active">
                 <div class="privileges__content--subtitles">
                     <div class="privileges__content--subtitles-item">
                         <h3 class="privileges__content--subtitles-title">Features</h3>
