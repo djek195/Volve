@@ -157,6 +157,8 @@ dropdowns.forEach(dropdown => {
 });
 
 const privilegesDropdowns = document.querySelectorAll('.privileges__tabs');
+const privilegesSubtitle = document.querySelector('.privileges__content--subtitles-item_desktop');
+const privilegesLists = document.querySelectorAll('.privileges__content--list');
 
 privilegesDropdowns.forEach(dropdown => {
     const selectButton = dropdown.querySelector('.privileges__tabs--select');
@@ -177,12 +179,79 @@ privilegesDropdowns.forEach(dropdown => {
             selected.textContent = this.textContent;
             menu.classList.remove('open');
             caret.classList.remove('rotate');
+
+            privilegesSubtitle.textContent = this.textContent;
+            privilegesLists.forEach(list => {
+                list.style.display = 'none';
+            });
+
+            let list = document.querySelector('.privileges__content--list[data-tab="' + index + '"]');
+            list.style.display = '';
         });
     });
 });
 
 
+const pricingTabs = document.querySelectorAll('.pricing__tabs');
+const priceBlocks = document.querySelectorAll('.pricing__banner--plans-price');
+const pricingLists = document.querySelectorAll('.pricing__banner--benefits-item_result');
 
+pricingTabs.forEach(dropdown => {
+    const selectButton = dropdown.querySelector('.pricing__tabs--select');
+    const menu = dropdown.querySelector('.pricing__tabs--menu');
+    const caret = dropdown.querySelector('.pricing__tabs--caret');
+    const selected = dropdown.querySelector('.pricing__tabs--selected');
+    const listItems = dropdown.querySelectorAll('.pricing__tabs--menu li');
+
+    selectButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        caret.classList.toggle('rotate');
+    });
+
+    listItems.forEach(item => {
+        item.addEventListener('click', function () {
+            listItems.forEach(el => el.classList.remove('active'));
+
+            this.classList.add('active');
+            selected.textContent = this.textContent;
+            menu.classList.remove('open');
+            caret.classList.remove('rotate');
+
+            const tabValue = item.getAttribute('data-tab');
+
+            priceBlocks.forEach(block => {
+                block.classList.remove('pricing__banner--plans-price_active');
+            });
+
+            priceBlocks.forEach(block => {
+                if (block.getAttribute('data-tab') === tabValue) {
+                    block.classList.add('pricing__banner--plans-price_active');
+                }
+            });
+
+            pricingLists.forEach(list => {
+                list.classList.remove('active');
+            });
+
+            pricingLists.forEach(list => {
+                if (list.getAttribute('data-tab') === tabValue) {
+                    list.classList.add('active');
+                }
+            });
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        priceBlocks.forEach(block => {
+            block.classList.add('pricing__banner--plans-price_active');
+        });
+
+        pricingLists.forEach(list => {
+            list.classList.add('active');
+        });
+    }
+});
 // let page = 1; // keep track of current page
 
 // document.querySelector('.archive__button button').addEventListener('click', function () {
@@ -208,19 +277,3 @@ privilegesDropdowns.forEach(dropdown => {
 // });
 
 
-let privilegesTabs = document.querySelectorAll('.privileges__tabs--menu li');
-let privilegesSubtitle = document.querySelector('.privileges__content--subtitles-item_desktop');
-let privilegesLists = document.querySelectorAll('.privileges__content--list');
-
-privilegesTabs.forEach((tab, index) => {
-    tab.addEventListener(('click'), () => {
-        privilegesSubtitle.textContent = tab.textContent;
-
-        privilegesLists.forEach(list => {
-            list.style.display = 'none';
-        });
-
-        let list = document.querySelector('.privileges__content--list[data-tab="' + index + '"]');
-        list.style.display = '';
-    });
-});
