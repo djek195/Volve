@@ -22,4 +22,12 @@
                 </div>
             <?php endforeach; ?>
         </div>
+        <div class="show-more">
+            <button>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
 </section>
