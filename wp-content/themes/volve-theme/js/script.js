@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let page = 1;
-const category_id = document.querySelector('.show-more__button').getAttribute('data-category');
+const category_id = document.querySelector('.load-more').getAttribute('data-category');
 document.querySelector('.show-more__button button').addEventListener('click', function () {
     page++;
     let url = `${window.location.origin}/wp-admin/admin-ajax.php`;

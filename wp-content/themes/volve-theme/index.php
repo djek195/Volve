@@ -65,9 +65,14 @@ get_header();
                                 // If there are more than 6 posts, add a link to the category page
                                 if (count($posts) >= 6) {
                                     ?>
-                                    <div class="swiper-slide categories__category--link">
-                                        <a href="<?= esc_url(get_category_link($category->term_id)) ?>">
-                                            View all posts in <?= esc_html($category->name) ?>
+                                    <div class="swiper-slide categories__category--link-more">
+                                        <a class="show-more__button"
+                                           href="<?= esc_url(get_category_link($category->term_id)) ?>">
+                                            <button>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </button>
                                         </a>
                                     </div>
                                     <?php

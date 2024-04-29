@@ -106,7 +106,7 @@ get_header();
         <?php
         $current_category = get_queried_object();
         ?>
-        <div class="show-more__button" data-category="<?php echo $current_category->term_id; ?>">
+        <div class="show-more__button load-more" data-category="<?php echo $current_category->term_id; ?>">
             <button>
                 <span></span>
                 <span></span>

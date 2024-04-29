@@ -4,18 +4,25 @@
         ?>
         <div class="archive__content--post-image">
             <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail(); ?>
+                <?php the_post_thumbnail('thumbnail-image-lg'); ?>
             </a>
         </div>
         <?php
     }
     ?>
     <div class="archive__content--post-title">
-        <p>
-            <a href="<?= esc_url(get_category_link(get_the_category(get_post()->ID)[0]->term_id)); ?>">
-                <?= esc_html(get_the_category(get_post()->ID)[0]->name); ?>
-            </a>
-        </p>
+        <div class="category-name__list">
+            <?php
+            $post_categories = get_the_category(get_post()->ID);
+            $categories_links = array();
+
+            foreach ($post_categories as $category) {
+                $categories_links[] = '<a class="category-name" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+            }
+
+            echo implode(', ', $categories_links);
+            ?>
+        </div>
         <h4><a href="<?= esc_url(get_permalink()); ?>"><?php the_title(); ?></a>
         </h4>
     </div>

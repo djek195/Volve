@@ -21,7 +21,7 @@ body {
     padding: rem(80) rem(20);
 
     @media (min-width: $breakpoint-xl) {
-      padding: rem(100) rem(20) rem(180) rem(20);
+      padding: rem(100) rem(0) rem(180) rem(0);
     }
 
     &:first-child {
@@ -249,100 +249,146 @@ body {
 }
 
 .home {
+  &__section {
+    align-self: normal;
+    overflow: hidden;
+  }
+
   &__wrapper {
     width: 100%;
-    max-width: rem(1420) !important;
+    max-width: rem(1420);
+    margin: 0 auto;
+  }
+
+  &__main {
     display: flex;
+    padding: rem(120) 0;
     flex-direction: column;
-    align-items: center;
     gap: rem(60);
 
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) {
       flex-direction: row;
-      gap: rem(20);
-    }
-  }
-
-  &__main--content {
-    width: 100%;
-    max-width: rem(595);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: rem(30);
-
-    @media (min-width: $breakpoint-lg) {
-      max-width: rem(650);
+      gap: rem(100);
     }
 
-    &-title {
-      color: $v-white;
-      font-size: rem(35);
-      line-height: rem(42);
-
-      @media (min-width: $breakpoint-xl) {
-        font-size: rem(65);
-        line-height: rem(72);
-      }
-    }
-
-    &-description {
-      color: $v-white;
-      font-size: rem(16);
-      line-height: rem(23);
-
-      @media (min-width: $breakpoint-xl) {
-        font-size: rem(20);
-        line-height: rem(27);
-        max-width: rem(595);
-        text-align: start;
-      }
-    }
-
-    &-buttons {
-      width: 100%;
-      max-width: rem(320);
+    &--content {
+      flex: 0 0 50%;
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: rem(30);
 
-      button {
-        width: 100%;
-        height: rem(48);
-        background: $v-general;
-        border: 0;
-        border-radius: rem(40);
+      &-title {
         color: $v-white;
-        text-align: center;
-        font-size: rem(18);
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+        font-size: rem(35);
+        line-height: rem(42);
+
+        @media (min-width: $breakpoint-xl) {
+          margin-top: rem(65);
+          font-size: rem(65);
+          line-height: rem(72);
+        }
       }
 
-      a {
-        font-size: rem(18);
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-decoration: none;
+      &-description {
+        color: $v-white;
+        font-size: rem(16);
+        line-height: rem(23);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(20);
+          line-height: rem(27);
+          max-width: rem(595);
+          text-align: start;
+        }
+      }
+
+      &-buttons {
+        margin-top: rem(10);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(30);
+
+        @media (min-width: $breakpoint-xl) {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        button {
+          width: 100%;
+          max-width: rem(320);
+          height: rem(48);
+          background: $v-general;
+          border: 0;
+          border-radius: rem(40);
+          color: $v-white;
+          text-align: center;
+          font-size: rem(18);
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
+          @media (min-width: $breakpoint-xl) {
+            width: rem(230);
+            height: rem(54);
+            font-size: rem(20);
+          }
+        }
+
+        a {
+          font-size: rem(18);
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          text-decoration: none;
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(20);
+          }
+        }
+      }
+    }
+
+    &--image {
+      display: flex;
+      justify-content: flex-start;
+      flex: 0 0 50%;
+      margin: 0;
+
+      &-wrapper {
+        width: 100%;
+
+        img {
+          max-width: min-content;
+          height: rem(327);
+
+          @media (min-width: $breakpoint-xl) {
+            height: rem(780);
+          }
+        }
       }
     }
   }
 
-  &__main--image {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex: none;
+}
 
-    img {
-      width: 100%;
-      object-fit: cover;
-      transform: translateX(20px);
+.some {
+  &__wrapper {
+    max-width: rem(1420);
+  }
+
+  &__content {
+    display: table;
+
+    &--text {
+      color: white;
     }
 
+    &--image {
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
 }
 
@@ -664,7 +710,6 @@ body {
 }
 
 .trial {
-  width: 100%;
   padding: rem(0) rem(20) rem(0) rem(20);
   margin-bottom: rem(80);
   display: flex;
@@ -1107,7 +1152,6 @@ body {
 }
 
 .related {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2185,17 +2229,19 @@ body {
     }
   }
 
+  @media (min-width: 768px) {
+    .offers__content .offer-element {
+      display: flex;
+    }
+  }
+
   &__content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    //flex-direction: column;
-    //align-items: center;
     gap: rem(30);
 
     @media (min-width: $breakpoint-md) {
       row-gap: rem(60);
-      //flex-direction: row;
-      //justify-content: space-between;
     }
 
     @media (min-width: $breakpoint-xl) {
@@ -2207,6 +2253,10 @@ body {
       flex-direction: column;
       gap: rem(10);
       max-width: rem(320);
+
+      &:nth-child(n+4) {
+        display: none;
+      }
 
       @media (min-width: $breakpoint-md) {
         gap: rem(30);
@@ -2259,6 +2309,20 @@ body {
           max-width: rem(310);
         }
       }
+    }
+  }
+
+  #show-more:checked ~ .offers__content .offer-element {
+    display: flex;
+  }
+
+  #show-more:checked ~ .show-more__button {
+    display: none;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    .show-more__button {
+      display: none;
     }
   }
 }
@@ -2615,7 +2679,6 @@ body {
       position: relative;
       width: 50%;
       flex: 0 0 48%;
-      //need update
 
       &-image {
         width: 100%;
@@ -2732,6 +2795,10 @@ body {
       line-height: rem(37);
       color: $v-gray-300;
 
+      &:hover {
+        color: $v-general;
+      }
+
       @media (min-width: $breakpoint-xl) {
         font-size: rem(50);
         line-height: rem(70);
@@ -2764,6 +2831,24 @@ body {
           font-size: rem(20);
           font-weight: 300;
           line-height: rem(30);
+
+          &:hover {
+            color: $v-general;
+          }
+        }
+      }
+    }
+
+    &--link {
+      &-more {
+        width: 100%;
+        height: 100%;
+        max-height: rem(332);
+        display: flex;
+        align-items: center;
+
+        @media (min-width: $breakpoint-sm) {
+          max-height: rem(200);
         }
       }
     }
@@ -2870,6 +2955,10 @@ body {
           line-height: rem(21);
           color: $v-gray-200;
           text-decoration: none;
+
+          &:hover {
+            color: $v-general;
+          }
         }
 
         h4 > a {
@@ -2877,6 +2966,10 @@ body {
           font-weight: 300;
           line-height: rem(30);
           color: $v-black;
+
+          &:hover {
+            color: $v-general;
+          }
 
           @media (min-width: $breakpoint-xl) {
             font-size: rem(25);
@@ -3198,42 +3291,46 @@ body {
 }
 
 .show-more {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    order: 1;
 
-  button {
-    display: block;
-    width: 55px;
-    height: 55px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: $v-general;
-    position: relative;
-    border: 0;
-
-    span {
-      &:first-child {
-        margin-left: rem(-16);
-      }
-
-      &:last-child {
-        margin-left: rem(11);
-      }
-
-      width: 6px;
-      height: 6px;
+    label {
+      display: block;
+      width: 55px;
+      height: 55px;
+      margin: 0 auto;
       border-radius: 50%;
-      background: #fff;
-      position: absolute;
-      top: 50%;
-      margin-top: -3px;
-      left: 50%;
-      margin-left: -3px;
-      transition: all 0.3s;
+      background: $v-general;
+      position: relative;
+      border: 0;
+
+      span {
+        &:first-child {
+          margin-left: rem(-16);
+        }
+
+        &:last-child {
+          margin-left: rem(11);
+        }
+
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        left: 50%;
+        margin-left: -3px;
+        transition: all 0.3s;
+      }
     }
   }
 }
+
 
 .post {
   width: 100%;
