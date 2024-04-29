@@ -60,10 +60,23 @@ get_header();
                             }
                             ?>
                             <div class="archive__content--post-title">
-                                <a class="category-name"
-                                   href="<?= esc_url(get_category_link(get_the_category(get_post()->ID)[0]->term_id)); ?>">
-                                    <?= esc_html(get_the_category(get_post()->ID)[0]->name); ?>
-                                </a>
+                                <div class="category-name__list">
+                                    <?php
+                                    $post_categories = get_the_category(get_post()->ID);
+                                    $categories_links = array();
+
+                                    foreach ($post_categories as $category) {
+                                        $categories_links[] = '<a class="category-name" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+                                    }
+
+                                    echo implode(', ', $categories_links);
+                                    ?>
+                                </div>
+                                <!--                                <a class="category-name"-->
+                                <!--                                   href="-->
+                                <?php //= esc_url(get_category_link(get_the_category(get_post()->ID)[0]->term_id)); ?><!--">-->
+                                <!--                                    --><?php //= esc_html(get_the_category(get_post()->ID)[0]->name); ?>
+                                <!--                                </a>-->
                                 <h4>
                                     <a href="<?= esc_url(get_permalink()); ?>"><?= wp_trim_words(get_the_title(), 46, '...'); ?></a>
                                 </h4>
@@ -90,8 +103,15 @@ get_header();
             }
             ?>
         </div>
-        <div class="archive__button">
-            <button>Load more</button>
+        <?php
+        $current_category = get_queried_object();
+        ?>
+        <div class="show-more__button" data-category="<?php echo $current_category->term_id; ?>">
+            <button>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
         <div class="blog__extra-content">

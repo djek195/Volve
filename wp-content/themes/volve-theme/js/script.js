@@ -241,7 +241,7 @@ pricingTabs.forEach(dropdown => {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (window.matchMedia("(min-width: 768px)").matches) {
         priceBlocks.forEach(block => {
             block.classList.add('pricing__banner--plans-price_active');
@@ -252,28 +252,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-// let page = 1; // keep track of current page
 
-// document.querySelector('.archive__button button').addEventListener('click', function () {
-//     page++; // increment page count
-//     fetch(`${window.location.origin}/wp-admin/admin-ajax.php?action=load_more_posts&page=${page}`)
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.text();
-//         })
-//         .then(data => {
-//             if (data) {
-//                 document.querySelector('.archive__content').innerHTML += data;
-//             } else {
-//                 // hide the load more button if there are no more posts
-//                 document.querySelector('.archive__button').style.display = 'none';
-//             }
-//         })
-//         .catch(error => {
-//             console.error('There has been a problem with your fetch operation:', error);
-//         });
-// });
+let page = 1;
+const category_id = document.querySelector('.show-more__button').getAttribute('data-category');
+document.querySelector('.show-more__button button').addEventListener('click', function () {
+    page++;
+    let url = `${window.location.origin}/wp-admin/admin-ajax.php`;
+    let data = new FormData();
+    data.append('action', 'load_more_posts');
+    data.append('page', page);
+    data.append('category_id', category_id);
+
+    let request = new Request(url, {
+        method: 'POST',
+        body: data
+    });
+
+    fetch(request)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            let parser = new DOMParser();
+            let htmlDocument = parser.parseFromString(data, "text/html");
+            let posts = htmlDocument.querySelectorAll('.archive__content--post');
+            if (posts.length < 6) {
+                document.querySelector('.show-more__button').style.display = 'none';
+            }
+            if (data) {
+                document.querySelector('.archive__content').innerHTML += data;
+            } else {
+                document.querySelector('.show-more__button').style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+});
+window.addEventListener('load', (event) => {
+    let posts = document.querySelectorAll('.archive__content--post');
+    if (posts.length < 6) {
+        document.querySelector('.show-more__button').style.display = 'none';
+    }
+});
 
 
