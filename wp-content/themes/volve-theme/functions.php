@@ -70,13 +70,14 @@ require_once __DIR__ . '/inc/author-jobtitle.php';
 
 function load_more_posts()
 {
-    $paged = $_POST['page'] + 1;
+    $paged = $_POST['page'];
+    $category_id = $_POST['category_id'];
+
     $args = array(
         'paged' => $paged,
         'post_status' => 'publish',
         'posts_per_page' => 6,
-        'cat' => '',
-        'category_name' => '',
+        'cat' => $category_id,
         'order' => 'DESC',
     );
     $query = new WP_Query($args);
