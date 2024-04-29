@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const burger = document.querySelector('.header__burger');
-    const headerContent = document.querySelector('.header__content');
-    const closeModal = document.querySelector('.header__close');
+ function addToggleClassListener(elementQuery, event, targetQuery, className) {
+    const element = document.querySelector(elementQuery);
+    const target = document.querySelector(targetQuery);
 
-    burger.addEventListener('click', function () {
-        headerContent.classList.add('active');
+    element.addEventListener(event, () => {
+        target.classList.toggle(className);
     });
+}
 
-    closeModal.addEventListener('click', function () {
-        headerContent.classList.remove('active');
-    });
-
+addToggleClassListener('.header__burger', 'click', '.header__content', 'active');
+addToggleClassListener('.header__close', 'click', '.header__content', 'active');
+addToggleClassListener('.menu-item-type-custom', 'click', '.header__nav--panel', 'header__nav--panel-sub_opened');
+addToggleClassListener('.header__nav--panel-sub_back', 'click', '.header__nav--panel', 'header__nav--panel-sub_opened');
 
     const swiper = new Swiper('.experience__swiper', {
         spaceBetween: 60,
@@ -32,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 direction: 'vertical',
             },
         },
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
     });
 
     const relatedSwiper = new Swiper('.related__slider', {
@@ -57,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const stickyPostsSwiper = new Swiper('.blog__sticky--posts', {
         spaceBetween: 20,
         loop: true,
-        // direction: 'horizontal',
         slidesPerView: 1,
         navigation: {
             nextEl: ".blog__sticky--posts-buttons-next",
@@ -298,5 +298,4 @@ window.addEventListener('load', (event) => {
         document.querySelector('.show-more__button').style.display = 'none';
     }
 });
-
 

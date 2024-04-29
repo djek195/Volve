@@ -58,24 +58,85 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/close.svg" class="close"
                      alt="Close Menu"/>
             </div>
-            <nav class="header__nav">
-                <?php
-                wp_nav_menu([
-                    'theme_location' => 'primary',
-                    'menu_id' => 'primary-menu',
-                    'container' => false,
-                    'menu_class' => 'header__nav--list',
-                ]);
-                ?>
+            <nav class="header__content--inner">
+                <div class="header__nav">
+                    <div class="header__nav--panel">
+                        <div class="header__nav--panel-main">
+                            <?php
+                            wp_nav_menu([
+                                'menu' => 'mobile-menu',
+                                'theme_location' => '',
+                                'menu_id' => 'mobile-menu',
+                                'container' => false,
+                                'menu_class' => 'header__nav--panel-main_list',
+                            ]);
+                            ?>
+                            <div class="header__buttons">
+                                <div class="header__buttons--auth">
+                                    <a>Log in</a>
+                                </div>
+                                <div class="header__buttons--demo">
+                                    <button>Try free for 30 days</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__nav--panel-sub">
+                            <div class="header__nav--panel-sub_back">
+                                <img src="
+                                    <?php echo get_template_directory_uri(); ?>/assets/icons/back.png" class="close"
+                                     alt="Close Sub"/>
+                                <span>Back</span>
+                            </div>
+                            <div class="header__nav--panel-sub_wrapper">
+                                <?php
+                                wp_nav_menu([
+                                    'menu' => 'sub-menu',
+                                    'theme_location' => '',
+                                    'menu_id' => 'sub-menu',
+                                    'container' => false,
+                                    'menu_class' => 'header__nav--panel-sub_list',
+                                ]);
+                                ?>
+                                <div class="categories__search">
+                                    <?php get_template_part('inc/templates/search-form'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--                <div class="header__nav--main">-->
+                <!--                    --><?php
+                //                    wp_nav_menu([
+                //                        'menu' => 'mobile-menu',
+                //                        'theme_location' => '',
+                //                        'menu_id' => 'mobile-menu',
+                //                        'container' => false,
+                //                        'menu_class' => 'header__nav--main-list',
+                //                    ]);
+                //                    ?>
+                <!--                </div>-->
+                <!--                <div class="header__nav--sub">-->
+                <!--                    --><?php
+                //                    wp_nav_menu([
+                //                        'menu' => 'sub-menu',
+                //                        'theme_location' => '',
+                //                        'menu_id' => 'sub-menu',
+                //                        'container' => false,
+                //                        'menu_class' => 'header__nav--sub-list',
+                //                    ]);
+                //                    ?>
+                <!--                </div>-->
             </nav>
-            <div class="header__buttons">
-                <div class="header__buttons--auth">
-                    <a>Log in</a>
-                </div>
-                <div class="header__buttons--demo">
-                    <button>Try free for 30 days</button>
-                </div>
-            </div>
+            <!--            <div class="header__buttons">-->
+            <!--                <div class="header__buttons--auth">-->
+            <!--                    <a>Log in</a>-->
+            <!--                </div>-->
+            <!--                <div class="header__buttons--demo">-->
+            <!--                    <button>Try free for 30 days</button>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </div>
 </header>
