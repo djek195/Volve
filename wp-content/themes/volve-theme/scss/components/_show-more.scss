@@ -5,9 +5,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    order: 1;
 
-    label {
+    button, label {
       display: block;
       width: 55px;
       height: 55px;
@@ -16,6 +15,7 @@
       background: $v-general;
       position: relative;
       border: 0;
+      cursor: pointer;
 
       span {
         &:first-child {

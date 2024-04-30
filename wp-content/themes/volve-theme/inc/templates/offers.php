@@ -11,7 +11,7 @@
         <h2 class="offers__title"><?= $fields['title'] ?></h2>
         <?php if (count($fields['crb_slider']) > 3): ?>
             <input type="checkbox" id="show-more" class="show-more" hidden="hidden">
-            <div class="show-more__button">
+            <div class="show-more__button offers__button">
                 <label for="show-more">
                     <span></span>
                     <span></span>
