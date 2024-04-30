@@ -1,0 +1,260 @@
+@import "../abstracts/abstracts";
+
+.blog {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(21);
+    padding: rem(40) rem(16) rem(80) rem(16);
+
+    @media (min-width: $breakpoint-xl) {
+      padding: rem(115) rem(20) rem(160) rem(20);
+    }
+  }
+
+  &__header {
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: rem(35);
+
+    @media (min-width: $breakpoint-xl) {
+      font-size: rem(60);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+
+    &-block {
+      width: 100%;
+      max-width: rem(1410);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      @media (min-width: $breakpoint-xl) {
+        &:first-child {
+          gap: rem(40);
+        }
+        gap: rem(30);
+      }
+
+      h2 {
+        font-size: rem(30);
+        font-weight: 300;
+        line-height: rem(37);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(50);
+          line-height: rem(70);
+        }
+      }
+    }
+  }
+
+  &__sticky--posts {
+    width: 100%;
+    background-color: $v-white;
+    max-width: rem(1410);
+
+    &-post {
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      &-image {
+        width: 100%;
+        max-height: rem(490);
+        display: flex;
+        justify-content: center;
+
+        img {
+          border-radius: rem(6);
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-title {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        @media (min-width: $breakpoint-md) {
+          max-width: 50%;
+        }
+
+        p > a {
+          font-size: rem(14);
+          font-weight: 400;
+          line-height: rem(21);
+          color: $v-gray-200 !important;
+        }
+
+        h4 > a {
+          font-size: rem(20);
+          font-weight: 300;
+          line-height: rem(27);
+          color: $v-black;
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(25);
+          }
+        }
+      }
+
+      &-description {
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: rem(21);
+        color: $v-gray-300;
+
+        @media (min-width: $breakpoint-md) {
+          max-width: 50%;
+        }
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(16);
+        }
+      }
+    }
+
+    &-buttons {
+      gap: rem(20);
+      display: flex;
+      position: absolute;
+      right: 0;
+      height: rem(40);
+      margin-top: rem(3);
+
+      @media (min-width: $breakpoint-xl) {
+        height: rem(55);
+        margin-top: rem(11);
+      }
+    }
+  }
+
+  &__last-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(60);
+
+    @media (min-width: $breakpoint-md) {
+      gap: 0;
+    }
+
+    &--post {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      @media (min-width: $breakpoint-md) {
+        flex: 0 0 calc((100% - 60px) / 3);
+        &:nth-child(-n+2) {
+          flex: 0 0 calc((100% - 30px) / 2);
+        }
+
+        &:nth-child(n+3) {
+          margin-top: 120px; /* Змініть значення на потрібний вам відступ */
+        }
+
+      }
+
+      &-image {
+        width: 100%;
+        max-height: rem(410);
+        border-radius: rem(6);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: rem(6);
+
+          @media (min-width: $breakpoint-md) {
+            &:hover {
+              transition: all 0.3s ease-out;
+              transform: scale(1.05);
+            }
+          }
+
+        }
+      }
+
+      &-title {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        p > a {
+          font-size: rem(14);
+          font-weight: 400;
+          line-height: rem(21);
+          color: $v-gray-200 !important;
+        }
+
+        h4 > a {
+          font-size: rem(20);
+          font-weight: 300;
+          line-height: rem(30);
+          color: $v-black;
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(25);
+            line-height: rem(38);
+          }
+        }
+      }
+    }
+  }
+
+  &__categories {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+
+    &--category {
+      position: relative;
+      width: 50%;
+      flex: 0 0 48%;
+
+      &-image {
+        width: 100%;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          border-radius: rem(5);
+        }
+      }
+
+      &-name {
+        position: absolute;
+        bottom: rem(0);
+        left: rem(10);
+        font-size: rem(17);
+        font-weight: 300;
+        line-height: rem(30);
+        color: $v-white;
+
+      }
+    }
+  }
+}

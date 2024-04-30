@@ -1,0 +1,250 @@
+@import "../abstracts/abstracts";
+
+.footer {
+  background-color: $v-black;
+  margin-top: auto;
+  min-width: 300px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__wrapper {
+    width: 100%;
+    max-width: rem(1241);
+    display: flex;
+    flex-direction: column;
+    padding: 0 rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+    padding: rem(60) 0;
+
+    @media (min-width: $breakpoint-xl) {
+      gap: rem(69);
+    }
+
+    &--address {
+      p {
+        color: $v-white;
+        font-size: rem(14);
+        font-style: normal;
+        font-weight: 300;
+        line-height: rem(30);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(16);
+        }
+      }
+    }
+
+    &--contact {
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      @media (min-width: $breakpoint-xl) {
+        gap: rem(30);
+      }
+
+      h4 {
+        color: $v-white;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(20);
+        }
+      }
+
+      a {
+        color: $v-general-200;
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(16);
+        }
+      }
+    }
+  }
+
+  &__license {
+    width: 100%;
+    background-color: $v-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(10);
+    padding: rem(10) rem(20);
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      max-width: rem(1300);
+      gap: rem(10);
+
+      p {
+        color: $v-gray;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        max-width: 870px;
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        p:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    width: rem(93);
+    height: auto;
+
+    .logo {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      width: rem(111);
+    }
+  }
+
+  &__navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 1s ease-out;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: rem(801);
+
+      ul {
+        max-height: none;
+        overflow: visible;
+      }
+    }
+
+    .nav h4:after {
+      content: url("../assets/icons/drop-down-arrow(down).svg");
+      width: 25px;
+      float: right;
+      height: 25px;
+
+      @media (min-width: $breakpoint-xl) {
+        display: none;
+      }
+    }
+
+    .nav.open h4:after {
+      content: url("../assets/icons/drop-down-arrow.svg");
+      width: 25px;
+      height: 25px;
+
+      @media (min-width: $breakpoint-xl) {
+        display: none;
+      }
+    }
+
+    .nav.open ul {
+      height: auto;
+      max-height: 500px;
+      transition: max-height 1s ease-in !important;
+
+      @media (min-width: $breakpoint-xl) {
+        max-height: none;
+        transition: none;
+      }
+    }
+
+    &--item {
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30);
+
+        li {
+          a {
+            color: $v-white;
+            font-size: rem(14);
+            font-style: normal;
+            font-weight: 300;
+            line-height: rem(21);
+
+            @media (min-width: $breakpoint-xl) {
+              font-size: rem(16);
+            }
+          }
+        }
+
+        li:last-child {
+          margin-bottom: rem(40);
+        }
+
+      }
+
+      h4 {
+        padding: rem(40) 0 !important;
+        border-top: 1px solid $v-border;
+        font-size: rem(16);
+        color: $v-white;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 21px;
+        cursor: pointer;
+
+        @media (min-width: $breakpoint-xl) {
+          cursor: default;
+          font-size: rem(20);
+          font-weight: 400;
+          border-top: 0;
+        }
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+
+    &--wrapper {
+      width: 100%;
+      max-width: rem(1300);
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

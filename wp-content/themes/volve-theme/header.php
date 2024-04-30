@@ -51,7 +51,6 @@
         <div class="header__burger">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/burger.svg" class="burger"
                  alt="Open Menu"/>
-            </a>
         </div>
         <div class="header__content">
             <div class="header__close">
@@ -72,9 +71,6 @@
                             ]);
                             ?>
                             <div class="header__buttons">
-                                <div class="header__buttons--auth">
-                                    <a>Log in</a>
-                                </div>
                                 <div class="header__buttons--demo">
                                     <button>Try free for 30 days</button>
                                 </div>
@@ -97,46 +93,14 @@
                                     'menu_class' => 'header__nav--panel-sub_list',
                                 ]);
                                 ?>
-                                <div class="categories__search">
+                                <div class="header__search">
                                     <?php get_template_part('inc/templates/search-form'); ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <!--                <div class="header__nav--main">-->
-                <!--                    --><?php
-                //                    wp_nav_menu([
-                //                        'menu' => 'mobile-menu',
-                //                        'theme_location' => '',
-                //                        'menu_id' => 'mobile-menu',
-                //                        'container' => false,
-                //                        'menu_class' => 'header__nav--main-list',
-                //                    ]);
-                //                    ?>
-                <!--                </div>-->
-                <!--                <div class="header__nav--sub">-->
-                <!--                    --><?php
-                //                    wp_nav_menu([
-                //                        'menu' => 'sub-menu',
-                //                        'theme_location' => '',
-                //                        'menu_id' => 'sub-menu',
-                //                        'container' => false,
-                //                        'menu_class' => 'header__nav--sub-list',
-                //                    ]);
-                //                    ?>
-                <!--                </div>-->
             </nav>
-            <!--            <div class="header__buttons">-->
-            <!--                <div class="header__buttons--auth">-->
-            <!--                    <a>Log in</a>-->
-            <!--                </div>-->
-            <!--                <div class="header__buttons--demo">-->
-            <!--                    <button>Try free for 30 days</button>-->
-            <!--                </div>-->
-            <!--            </div>-->
         </div>
     </div>
 </header>

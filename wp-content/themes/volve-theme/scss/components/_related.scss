@@ -1,0 +1,109 @@
+@import "../abstracts/abstracts";
+
+.related {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: rem(80) rem(20);
+
+  @media (min-width: $breakpoint-xl) {
+    padding: rem(180) rem(20);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+    width: 100%;
+    max-width: rem(1420) !important;
+
+    @media (min-width: $breakpoint-md) {
+      align-items: center;
+      gap: rem(60);
+    }
+  }
+
+  &__title {
+    font-size: rem(30);
+    font-weight: 275;
+    line-height: rem(37);
+
+    @media (min-width: $breakpoint-xl) {
+      font-size: rem(60);
+      line-height: rem(67);
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    display: flex !important;
+    flex-direction: column;
+    gap: rem(30);
+
+    &--image {
+      width: 100%;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--text-content {
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+      height: 100%;
+
+      &-category {
+        font-size: rem(16);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(20);
+        }
+      }
+
+      &-title {
+        font-size: rem(20);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(30);
+        }
+      }
+
+      &-description {
+        font-size: rem(14);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(16);
+        }
+      }
+
+      &-link {
+        margin-top: auto;
+        font-size: rem(18);
+        font-weight: 400;
+        text-decoration: none;
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(20);
+        }
+      }
+    }
+
+    &--buttons {
+      display: flex;
+      justify-content: center;
+      gap: rem(20);
+
+      @media (min-width: $breakpoint-xl) {
+        display: none;
+      }
+    }
+  }
+}

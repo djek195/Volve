@@ -1,0 +1,27 @@
+@import "../abstracts/abstracts";
+
+body {
+  background-color: $v-white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  & > .wp-block-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: rem(80) rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      padding: rem(100) rem(0) rem(180) rem(0);
+    }
+
+    &:first-child {
+      padding-top: rem(60);
+
+      @media (min-width: $breakpoint-xl) {
+        padding-top: rem(180);
+      }
+    }
+  }
+}
