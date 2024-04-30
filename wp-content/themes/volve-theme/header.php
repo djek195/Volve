@@ -23,12 +23,11 @@
 <header class="header">
     <div class="header__wrapper">
         <div class="header__logo">
-            <a class="header__logo--link" href="<?php echo esc_url(home_url('/')); ?>">
-                <?php
-                $svg_content = file_get_contents(get_template_directory_uri() . '/assets/images/volve-logo.svg');
-                echo $svg_content;
-                ?>
-            </a>
+            <?php
+            if (function_exists('the_custom_logo')) {
+                the_custom_logo();
+            }
+            ?>
         </div>
 
         <div class="header__desktop">

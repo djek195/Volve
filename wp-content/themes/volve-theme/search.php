@@ -12,8 +12,8 @@ get_header();
 ?>
 
     <div class="search__wrapper">
-        <div class="search__content">
-            <div class="blog-header">
+        <div class="blog-header">
+            <div class="blog-header__wrapper">
                 <div class="blog-header__list">
                     <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>"
                        class="<?= is_home() ? 'active-link' : ''; ?>">All categories</a>
@@ -28,7 +28,8 @@ get_header();
                     <?php endforeach; ?>
                 </div>
             </div>
-
+        </div>
+        <div class="search__content">
             <div class="search__title">
                 <h1>Search Results:</h1>
                 <div class="search__title--form">

@@ -4,18 +4,20 @@ $categories = get_categories();
 get_header();
 ?>
     <div class="categories">
-        <div class="categories__wrapper">
             <div class="blog-header">
-                <div class="blog-header__list">
-                    <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>"
-                       class="<?= is_home() ? 'active-link' : ''; ?>">All categories</a>
-                    <?php
-                    $categories = get_categories();
-                    foreach ($categories as $category): ?>
-                        <a href="<?= esc_url(get_category_link($category->term_id)); ?>"><?= esc_html($category->name); ?></a>
-                    <?php endforeach; ?>
+                <div class="blog-header__wrapper">
+                    <div class="blog-header__list">
+                        <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>"
+                           class="<?= is_home() ? 'active-link' : ''; ?>">All categories</a>
+                        <?php
+                        $categories = get_categories();
+                        foreach ($categories as $category): ?>
+                            <a href="<?= esc_url(get_category_link($category->term_id)); ?>"><?= esc_html($category->name); ?></a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
+        <div class="categories__wrapper">
             <div class="categories__title">
                 <h1>All Categories</h1>
                 <div class="categories__search">

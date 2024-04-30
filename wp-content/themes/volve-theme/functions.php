@@ -93,6 +93,7 @@ function load_more_posts()
 }
 
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 
 add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
@@ -110,3 +111,5 @@ add_theme_support('title-tag');
 add_action('after_setup_theme', 'my_cool_menu_function');
 
 add_action('wp_enqueue_scripts', 'volve_theme_scripts');
+
+add_theme_support( 'custom-logo' );

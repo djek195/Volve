@@ -6,18 +6,20 @@ get_header();
 ?>
     <div class="archive__wrapper">
         <div class="blog-header">
-            <div class="blog-header__list">
-                <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>"
-                   class="<?= is_home() ? 'active-link' : ''; ?>">All categories</a>
-                <?php
-                $categories = get_categories();
-                $current_category = single_cat_title("", false);
-                foreach ($categories as $category): ?>
-                    <a href="<?= esc_url(get_category_link($category->term_id)); ?>"
-                       class="<?= is_category($category->name) ? 'active-link' : ''; ?>">
-                        <?= esc_html($category->name); ?>
-                    </a>
-                <?php endforeach; ?>
+            <div class="blog-header__wrapper">
+                <div class="blog-header__list">
+                    <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>"
+                       class="<?= is_home() ? 'active-link' : ''; ?>">All categories</a>
+                    <?php
+                    $categories = get_categories();
+                    $current_category = single_cat_title("", false);
+                    foreach ($categories as $category): ?>
+                        <a href="<?= esc_url(get_category_link($category->term_id)); ?>"
+                           class="<?= is_category($category->name) ? 'active-link' : ''; ?>">
+                            <?= esc_html($category->name); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
         <div class="archive__title">

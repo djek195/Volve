@@ -11,10 +11,12 @@ $description = 'Sign up for a free trial and experience the difference for yours
 
 <section class="trial">
     <div class="trial__wrapper">
-        <div class="trial__title">
-            <h4><?= !empty($fields['title']) ? $fields['title'] : $title ?></h4>
-            <p><?= !empty($fields['description']) ? $fields['description'] : $description ?></p>
+        <div class="trial__content">
+            <div class="trial__title">
+                <h4><?= !empty($fields['title']) ? $fields['title'] : $title ?></h4>
+                <p><?= !empty($fields['description']) ? $fields['description'] : $description ?></p>
+            </div>
+            <button>Try free for 30 days</button>
         </div>
-        <button>Try free for 30 days</button>
     </div>
 </section>

@@ -23,8 +23,8 @@ get_header();
 ?>
 
     <div class="author__wrapper">
-        <div class="author__content">
-            <div class="blog-header">
+        <div class="blog-header">
+            <div class="blog-header__wrapper">
                 <div class="blog-header__list">
                     <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>"
                        class="<?php echo is_home() ? 'active-link' : ''; ?>">All categories</a>
@@ -39,6 +39,8 @@ get_header();
                     <?php endforeach; ?>
                 </div>
             </div>
+        </div>
+        <div class="author__content">
             <div class="author__about">
                 <div class="author__about--avatar">
                     <?= get_avatar($author_id); ?>
