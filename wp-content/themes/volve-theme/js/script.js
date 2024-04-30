@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-    document.addEventListener('DOMContentLoaded', function () {
+
+    const checkWidth = () => {
         if (window.matchMedia("(min-width: 768px)").matches) {
             priceBlocks.forEach(block => {
                 block.classList.add('pricing__banner--plans-price_active');
@@ -262,14 +263,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 list.classList.add('active');
             });
         }
-    });
+    };
+    checkWidth();
 
     let page = 1;
     const category_id = document.querySelector('.load-more').getAttribute('data-category');
     document.querySelector('.show-more__button button').addEventListener('click', function () {
         page++;
-        let url = `${window.location.origin}/wp-admin/admin-ajax.php`;
-        let data = new FormData();
+        const url = `${window.location.origin}/wp-admin/admin-ajax.php`;
+        const data = new FormData();
         data.append('action', 'load_more_posts');
         data.append('page', page);
         data.append('category_id', category_id);
@@ -287,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.text();
             })
             .then(data => {
-                let parser = new DOMParser();
+                const parser = new DOMParser();
                 let htmlDocument = parser.parseFromString(data, "text/html");
                 let posts = htmlDocument.querySelectorAll('.archive__content--post');
                 if (posts.length < 6) {
@@ -304,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
     window.addEventListener('load', (event) => {
-        let posts = document.querySelectorAll('.archive__content--post');
+        const posts = document.querySelectorAll('.archive__content--post');
         if (posts.length < 6) {
             document.querySelector('.show-more__button').style.display = 'none';
         }
