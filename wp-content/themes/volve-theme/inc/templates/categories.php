@@ -1,17 +1,15 @@
 <div class="blog__content-block">
-    <h2><?= esc_html($fields['title']); ?></h2>
+    <h2><?= !empty(esc_html($fields['title'])) ? esc_html($fields['title']) : 'Categories'; ?></h2>
     <div class="blog__categories">
         <?php
         $all_categories_image_url = wp_get_attachment_image_src($fields['all_categories_image'], 'full')[0];
         ?>
         <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>">
             <div class="blog__categories--category">
-                <?php if ($all_categories_image_url): // Check if the image URL is not empty ?>
-                    <div class="blog__categories--category-image">
-                        <img src="<?= esc_url($all_categories_image_url); ?>"
-                             alt="All categories">
-                    </div>
-                <?php endif; ?>
+                <div class="blog__categories--category-image">
+                    <img src="<?= $all_categories_image_url ? esc_url($all_categories_image_url) : get_template_directory_uri() . '/assets/images/category_img.png' ?>"
+                         alt="All categories">
+                </div>
                 <span class="blog__categories--category-name">
                     All categories
                 </span>

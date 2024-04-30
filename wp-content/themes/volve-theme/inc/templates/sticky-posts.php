@@ -14,32 +14,48 @@
                     $primary_category_name = $primary_category->name;
                     ?>
                     <div class="swiper-slide blog__sticky--posts-post">
-                        <div class="blog__sticky--posts-post-image">
-                            <?= get_the_post_thumbnail($post, 'thumbnail-image-xxl'); ?>
-                        </div>
-                        <div class="blog__sticky--posts-post-title">
-                            <p>
-                                <a href="<?= esc_url(get_category_link($primary_category_id)); ?>">
-                                    <?= esc_html($primary_category_name); ?>
-                                </a>
-                            </p>
-                            <h4><a href="<?= esc_url(get_permalink($post)); ?>"><?= get_the_title($post); ?></a>
-                            </h4>
-                        </div>
-                        <div class="blog__sticky--posts-post-description">
-                            <p><?= get_the_excerpt($post); ?></p>
-                        </div>
-                        <div class="author-block">
-                            <div class="author-block__avatar">
-                                <?= get_avatar($author_id); ?>
+                        <ul class="blog__sticky--posts-post-tags">
+                            <?php
+                            $tags = get_the_tags($post->ID);
+                            if ($tags) {
+                                $first_three_tags = array_slice($tags, 0, 3);
+                                foreach ($first_three_tags as $tag) : ?>
+                                    <li><a href="<?= get_tag_link($tag); ?>"><span
+                                                    class="circle"></span><?= $tag->name; ?></a></li>
+                                <?php endforeach;
+                            }
+                            ?>
+                        </ul>
+                        <a href="<?= esc_url(get_category_link($primary_category_id)); ?>">
+                            <div class="blog__sticky--posts-post-image">
+                                <?= get_the_post_thumbnail($post, 'thumbnail-image-xxl'); ?>
                             </div>
-                            <div class="author-block__name">
-                                <a href="<?= esc_url(get_author_posts_url($author_id)); ?>">
-                                    <?= esc_html(get_the_author_meta('display_name', $author_id)); ?>
-                                </a>
-                                <p class="author-block__bio">
-                                    <?= esc_html(carbon_get_user_meta(get_the_author_meta('ID'), 'author_jobtitle')); ?>
+                        </a>
+                        <div class="blog__sticky--posts-post-info">
+                            <div class="blog__sticky--posts-post-title">
+                                <p>
+                                    <a href="<?= esc_url(get_category_link($primary_category_id)); ?>">
+                                        <?= esc_html($primary_category_name); ?>
+                                    </a>
                                 </p>
+                                <h4><a href="<?= esc_url(get_permalink($post)); ?>"><?= get_the_title($post); ?></a>
+                                </h4>
+                            </div>
+                            <div class="blog__sticky--posts-post-description">
+                                <p><?= get_the_excerpt($post); ?></p>
+                            </div>
+                            <div class="author-block">
+                                <div class="author-block__avatar">
+                                    <?= get_avatar($author_id); ?>
+                                </div>
+                                <div class="author-block__name">
+                                    <a href="<?= esc_url(get_author_posts_url($author_id)); ?>">
+                                        <?= esc_html(get_the_author_meta('display_name', $author_id)); ?>
+                                    </a>
+                                    <p class="author-block__bio">
+                                        <?= esc_html(carbon_get_user_meta(get_the_author_meta('ID'), 'author_jobtitle')); ?>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

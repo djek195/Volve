@@ -1,5 +1,5 @@
 <div class="blog__content-block">
-    <h2><?= esc_html($fields['title']); ?></h2>
+    <h2 class="blog__last-posts--title"><?= esc_html($fields['title']); ?></h2>
     <?php
     $query = new WP_Query(array(
         'posts_per_page' => $fields['number_of_posts'],
