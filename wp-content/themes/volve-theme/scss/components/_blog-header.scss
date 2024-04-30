@@ -1,17 +1,23 @@
 @import "../abstracts/abstracts";
 
 .blog-header {
-  width: 100%;
-  max-width: rem(1410);
   display: none;
 
 
   @media (min-width: $breakpoint-lg) {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    padding: 0 rem(16);
+    margin-bottom: rem(21);
+  }
+
+  &__wrapper {
     width: 100%;
     max-width: rem(1410);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   &__list {

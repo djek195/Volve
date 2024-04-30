@@ -1,27 +1,31 @@
 @import "../abstracts/abstracts";
 
-body {
-  background-color: $v-white;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
+.page {
   & > .wp-block-group {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: rem(80) rem(20);
+    padding: rem(60) rem(20) rem(80) rem(20);
 
     @media (min-width: $breakpoint-xl) {
-      padding: rem(100) rem(0) rem(180) rem(0);
+      padding: rem(100) rem(0) rem(160) rem(0);
     }
+  }
+}
 
-    &:first-child {
-      padding-top: rem(60);
+.page-id-9 > .wp-block-group {
+  padding: rem(40) rem(0) rem(80) rem(0);
+  display: flex;
+  gap: 0;
 
-      @media (min-width: $breakpoint-xl) {
-        padding-top: rem(180);
-      }
+  .wp-block-group {
+    margin-top: rem(80);
+    padding: 0 rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      margin-top: rem(160);
+      padding: 0;
     }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding: rem(115) rem(0) rem(0) rem(0);
   }
 }

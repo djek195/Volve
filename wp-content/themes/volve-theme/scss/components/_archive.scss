@@ -6,12 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(40);
     padding: rem(40) rem(16) rem(80) rem(16);
-
-    &:nth-child(1) {
-      gap: rem(21);
-    }
 
     @media (min-width: $breakpoint-xl) {
       padding: rem(115) rem(20) rem(0) rem(20);
@@ -24,6 +19,11 @@
     align-items: center;
     width: 100%;
     max-width: rem(1410);
+    margin-bottom: rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      margin-bottom: rem(30)
+    }
 
     h1 {
       font-size: rem(35);
@@ -118,6 +118,14 @@
           font-size: rem(16);
         }
       }
+    }
+  }
+
+  .load-more {
+    margin-top: rem(40);
+
+    @media (min-width: $breakpoint-xl) {
+      margin-top: rem(80);
     }
   }
 }

@@ -3,6 +3,8 @@
 .post {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding: rem(40) rem(16) rem(80) rem(16);
 
@@ -165,6 +167,141 @@
 
         @media (min-width: $breakpoint-lg) {
           display: flex;
+        }
+      }
+    }
+  }
+
+  &__linkedin {
+    max-width: rem(178);
+    margin-bottom: rem(60);
+
+    @media (min-width: $breakpoint-lg) {
+      margin-bottom: rem(120);
+    }
+  }
+
+  &__author {
+    display: grid;
+    grid-template-columns: rem(80) 1fr;
+    grid-template-areas:
+        "avatar name"
+        "description description";
+    row-gap: rem(15);
+    column-gap: rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      grid-template-columns: rem(90) 1fr;
+      grid-template-areas:
+          "avatar name"
+          "avatar description";
+      row-gap: rem(10);
+      column-gap: rem(20);
+    }
+
+    &--avatar {
+      grid-area: avatar;
+      width: rem(70);
+      height: rem(70);
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        width: rem(90);
+        height: rem(90);
+      }
+    }
+
+    &--name {
+      grid-area: name;
+      display: flex;
+      flex-direction: column;
+
+      h5 {
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(28);
+        color: $v-general;
+      }
+
+      span {
+        margin-top: -4px;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(28);
+        color: $v-gray-300;
+      }
+    }
+
+    &--description {
+      grid-area: description;
+      font-size: rem(16);
+      font-weight: 300;
+      line-height: rem(28);
+      color: $v-gray-300;
+      max-width: rem(1060);
+    }
+  }
+
+  &-slider {
+    width: 100%;
+    margin-bottom: rem(80);
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+
+
+    &__slider {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__slide {
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+
+      &--image {
+        width: 100%;
+        max-height: rem(640);
+
+        img {
+          width: 100%;
+          object-fit: cover;
+
+          @media (min-width: $breakpoint-xl) {
+          border-radius: rem(6);
+          }
+        }
+      }
+
+      &--description {
+        font-size: rem(12);
+        font-weight: 400;
+        line-height: rem(22);
+      }
+
+      &--buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: rem(10);
+        justify-content: flex-end;
+
+        &-prev, &-next {
+          width: rem(40);
+          height: rem(40);
+
+          @media (min-width: $breakpoint-xl) {
+            width: rem(55);
+            height: rem(55);
+          }
         }
       }
     }

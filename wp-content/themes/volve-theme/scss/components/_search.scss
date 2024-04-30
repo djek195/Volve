@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(40);
     padding: rem(40) rem(16) rem(80) rem(16);
 
     @media (min-width: $breakpoint-xl) {

@@ -25,9 +25,17 @@
 
   &__title {
     font-size: rem(35);
+    margin-left: rem(16);
+
+    @media (min-width: $breakpoint-lg) {
+      margin-top: rem(21);
+    }
 
     @media (min-width: $breakpoint-xl) {
       font-size: rem(60);
+      margin-bottom: rem(10);
+      margin-left: 0;
+
     }
   }
 
@@ -72,6 +80,7 @@
     max-width: rem(1410);
 
     &-post {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: rem(20);
@@ -83,9 +92,60 @@
         justify-content: center;
 
         img {
-          border-radius: rem(6);
           width: 100%;
           object-fit: cover;
+        }
+      }
+
+      &-tags {
+        position: absolute;
+        top: rem(16);
+        left: rem(16);
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: rem(10);
+
+        li {
+          border-radius: rem(30);
+          background-color: $v-gray-100;
+          padding: rem(5) rem(13);
+
+          a {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: rem(5);
+            font-size: rem(14);
+            font-weight: 300;
+            line-height: rem(21);
+            color: $v-gray-200;
+          }
+
+          .circle {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $v-general;
+
+          }
+        }
+
+        @media (min-width: $breakpoint-xl) {
+          display: none;
+        }
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+        padding: 0 rem(17);
+
+        @media (min-width: $breakpoint-xl) {
+          padding: 0;
         }
       }
 
@@ -102,7 +162,11 @@
           font-size: rem(14);
           font-weight: 400;
           line-height: rem(21);
-          color: $v-gray-200 !important;
+          color: $v-gray-200;
+
+          &:hover {
+            color: $v-general;
+          }
         }
 
         h4 > a {
@@ -110,6 +174,10 @@
           font-weight: 300;
           line-height: rem(27);
           color: $v-black;
+
+          &:hover {
+            color: $v-general;
+          }
 
           @media (min-width: $breakpoint-xl) {
             font-size: rem(25);
@@ -129,6 +197,7 @@
 
         @media (min-width: $breakpoint-xl) {
           font-size: rem(16);
+          margin-bottom: rem(10);
         }
       }
     }
@@ -137,13 +206,18 @@
       gap: rem(20);
       display: flex;
       position: absolute;
-      right: 0;
+      right: rem(16);
       height: rem(40);
       margin-top: rem(3);
+
+      @media (min-width: $breakpoint-lg) {
+        top: rem(25);
+      }
 
       @media (min-width: $breakpoint-xl) {
         height: rem(55);
         margin-top: rem(11);
+        right: 0;
       }
     }
   }
@@ -156,6 +230,14 @@
 
     @media (min-width: $breakpoint-md) {
       gap: 0;
+    }
+
+    &--title {
+      margin-top: rem(80);
+
+      @media (min-width: $breakpoint-xl) {
+      margin-top: rem(160);
+      }
     }
 
     &--post {
@@ -206,7 +288,11 @@
           font-size: rem(14);
           font-weight: 400;
           line-height: rem(21);
-          color: $v-gray-200 !important;
+          color: $v-gray-200;
+
+          &:hover {
+            color: $v-general;
+          }
         }
 
         h4 > a {
@@ -214,6 +300,10 @@
           font-weight: 300;
           line-height: rem(30);
           color: $v-black;
+
+          &:hover {
+            color: $v-general;
+          }
 
           @media (min-width: $breakpoint-xl) {
             font-size: rem(25);
@@ -226,14 +316,19 @@
 
   &__categories {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
     gap: rem(10);
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      gap: rem(20);
+    }
 
     &--category {
       position: relative;
-      width: 50%;
-      flex: 0 0 48%;
 
       &-image {
         width: 100%;
@@ -254,7 +349,29 @@
         line-height: rem(30);
         color: $v-white;
 
+        @media (min-width: $breakpoint-lg) {
+          font-size: rem(40);
+          line-height: rem(56);
+
+          &:hover {
+            color: $v-general;
+          }
+        }
+
       }
     }
+  }
+
+  &__extra-content {
+    margin-top: rem(40);
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-xl) {
+      margin-top: rem(80);
+    }
+
   }
 }
