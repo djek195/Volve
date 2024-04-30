@@ -66,6 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
+    const postSwiper = new Swiper('.post-slider__slider', {
+        spaceBetween: 60,
+        loop: true,
+        navigation: {
+            nextEl: ".post-slider__slide--buttons-next",
+            prevEl: ".post-slider__slide--buttons-prev"
+        },
+    });
+
     const stickyPostsSwiper = new Swiper('.blog__sticky--posts', {
         spaceBetween: 20,
         loop: true,
@@ -78,11 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const readMoreSwiper = new Swiper('.read-more__slider', {
         spaceBetween: 30,
-        loop: true,
         slidesPerView: 1,
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
+            nextEl: ".read-more__buttons--next",
+            prevEl: ".read-more__buttons--prev"
         },
         breakpoints: {
             650: {
