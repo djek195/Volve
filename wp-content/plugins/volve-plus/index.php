@@ -26,6 +26,8 @@ $rootFiles = glob(UP_PLUGIN_DIR . 'includes/*.php');
 $subdirectoryFiles = glob(UP_PLUGIN_DIR . 'includes/**/*.php');
 $allFiles = array_merge($rootFiles, $subdirectoryFiles);
 foreach ($allFiles as $filename) {
+    //    checl if include file exists
+if (file_exists($filename))
     include_once ($filename);
 }
 

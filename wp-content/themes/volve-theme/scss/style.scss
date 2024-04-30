@@ -1,0 +1,43 @@
+@import "abstracts/abstracts";
+
+@import "components/wp";
+@import "components/header";
+@import "components/home";
+@import "components/footer";
+@import "components/404";
+@import "components/trial";
+@import "components/trial-banner";
+@import "components/experience";
+@import "components/related";
+@import "components/read-more";
+@import "components/cross-functional";
+@import "components/faq";
+@import "components/privileges";
+@import "components/pricing";
+@import "components/offers";
+@import "components/tab";
+@import "components/blog";
+@import "components/categories";
+@import "components/archive";
+@import "components/author";
+@import "components/author-block";
+@import "components/search";
+@import "components/show-more";
+@import "components/post";
+@import "components/blog-header";
+
+.separator {
+  width: 100%;
+  border-top: 1px solid $v-border;
+  max-width: rem(1420) !important;
+  margin: rem(80) 0;
+
+  @media (min-width: $breakpoint-xl) {
+    margin: rem(150) 0;
+  }
+}
+
+.active-link {
+  color: $v-general !important;
+  text-decoration: none;
+}

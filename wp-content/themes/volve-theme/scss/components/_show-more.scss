@@ -1,0 +1,42 @@
+@import "../abstracts/abstracts";
+
+.show-more {
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button, label {
+      display: block;
+      width: 55px;
+      height: 55px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: $v-general;
+      position: relative;
+      border: 0;
+      cursor: pointer;
+
+      span {
+        &:first-child {
+          margin-left: rem(-16);
+        }
+
+        &:last-child {
+          margin-left: rem(11);
+        }
+
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        left: 50%;
+        margin-left: -3px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

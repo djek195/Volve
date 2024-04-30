@@ -1,0 +1,204 @@
+@import "../abstracts/abstracts";
+
+.experience {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(30);
+    width: 100%;
+    max-width: rem(1420);
+
+
+    @media (min-width: 655px) {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+
+    @media (min-width: 655px) {
+      align-items: center;
+    }
+
+    p {
+      color: $v-white;
+      font-size: rem(20);
+      font-style: normal;
+      font-weight: 275;
+      line-height: rem(27);
+
+      @media (min-width: 655px) {
+        font-size: rem(25);
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        font-size: rem(30);
+        line-height: rem(37);
+      }
+    }
+
+    h2 {
+      color: $v-white;
+      font-size: rem(30);
+      font-style: normal;
+      font-weight: 275;
+      line-height: rem(37);
+
+      @media (min-width: 655px) {
+        font-size: rem(45);
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        font-size: rem(60);
+        line-height: rem(67);
+      }
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    width: 100%;
+    background-color: $v-white;
+    max-width: rem(1420);
+
+    @media (min-width: 655px) {
+      max-height: rem(810);
+    }
+
+    &--slide {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: rem(87);
+
+      @media (min-width: 655px) {
+        flex-direction: row;
+        align-items: center;
+        gap: rem(0);
+        justify-content: start;
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        font-size: rem(60);
+        line-height: rem(67);
+        gap: rem(96);
+      }
+
+      &-image {
+        width: 100%;
+        padding-top: rem(33);
+        display: flex;
+        justify-content: start;
+        max-width: rem(556);
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(20);
+        padding: rem(0) rem(20) rem(60) rem(20);
+
+        @media (min-width: 655px) {
+          align-items: flex-start;
+          gap: rem(30);
+          max-width: rem(360);
+          padding: 0;
+          margin-right: rem(100);
+        }
+
+        h3 {
+          font-size: rem(30);
+          font-weight: 275;
+          line-height: rem(37);
+          text-align: center;
+          max-width: rem(260);
+
+          @media (min-width: 655px) {
+            font-size: rem(45);
+            text-align: left;
+            max-width: rem(304);
+
+          }
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(60);
+            line-height: rem(67);
+          }
+        }
+
+        p {
+          font-size: rem(16);
+          font-weight: 275;
+          line-height: rem(23);
+          text-align: center;
+          max-width: rem(260);
+
+          @media (min-width: 655px) {
+            font-size: rem(18);
+            text-align: left;
+            max-width: rem(304);
+          }
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(20);
+            line-height: rem(27);
+          }
+        }
+
+        button {
+          margin-top: rem(10);
+          width: rem(280);
+          height: rem(48);
+          background: $v-general;
+          border: 0;
+          border-radius: rem(40);
+          color: $v-white;
+          text-align: center;
+          font-size: rem(18);
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+
+          @media (min-width: 655px) {
+            width: rem(230);
+            height: rem(48);
+            font-size: rem(18);
+          }
+
+          @media (min-width: $breakpoint-xl) {
+            width: rem(230);
+            height: rem(54);
+            font-size: rem(20);
+          }
+        }
+      }
+    }
+
+    &--buttons {
+      position: absolute;
+      display: flex;
+      gap: rem(20);
+      bottom: rem(275);
+      right: 50%;
+      transform: translate(50%, -50%);
+      z-index: 10;
+
+      @media (min-width: 655px) {
+        right: 0;
+        bottom: 50%;
+        transform: rotate(90deg) translateX(28%);
+      }
+    }
+  }
+}

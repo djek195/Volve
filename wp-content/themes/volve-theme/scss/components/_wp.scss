@@ -1,0 +1,31 @@
+@import "../abstracts/abstracts";
+
+.page {
+  & > .wp-block-group {
+    padding: rem(60) rem(20) rem(80) rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      padding: rem(100) rem(0) rem(160) rem(0);
+    }
+  }
+}
+
+.page-id-9 > .wp-block-group {
+  padding: rem(40) rem(0) rem(80) rem(0);
+  display: flex;
+  gap: 0;
+
+  .wp-block-group {
+    margin-top: rem(80);
+    padding: 0 rem(20);
+
+    @media (min-width: $breakpoint-xl) {
+      margin-top: rem(160);
+      padding: 0;
+    }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding: rem(115) rem(0) rem(0) rem(0);
+  }
+}

@@ -1,0 +1,40 @@
+@import "../abstracts/abstracts";
+
+.blog-header {
+  display: none;
+
+
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 rem(16);
+    margin-bottom: rem(21);
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: rem(30);
+
+    a {
+      font-size: rem(14);
+      font-weight: 400;
+      line-height: rem(21);
+      color: $v-black-100;
+      text-decoration: none;
+
+      &:hover {
+        color: $v-general;
+      }
+    }
+  }
+}

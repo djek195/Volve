@@ -1,0 +1,377 @@
+@import "../abstracts/abstracts";
+
+.blog {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(21);
+    padding: rem(40) rem(16) rem(80) rem(16);
+
+    @media (min-width: $breakpoint-xl) {
+      padding: rem(115) rem(20) rem(160) rem(20);
+    }
+  }
+
+  &__header {
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: rem(35);
+    margin-left: rem(16);
+
+    @media (min-width: $breakpoint-lg) {
+      margin-top: rem(21);
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      font-size: rem(60);
+      margin-bottom: rem(10);
+      margin-left: 0;
+
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-direction: column;
+    gap: rem(80);
+
+    &-block {
+      width: 100%;
+      max-width: rem(1410);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      @media (min-width: $breakpoint-xl) {
+        &:first-child {
+          gap: rem(40);
+        }
+        gap: rem(30);
+      }
+
+      h2 {
+        font-size: rem(30);
+        font-weight: 300;
+        line-height: rem(37);
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(50);
+          line-height: rem(70);
+        }
+      }
+    }
+  }
+
+  &__sticky--posts {
+    width: 100%;
+    background-color: $v-white;
+    max-width: rem(1410);
+
+    &-post {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      &-image {
+        width: 100%;
+        max-height: rem(490);
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-tags {
+        position: absolute;
+        top: rem(16);
+        left: rem(16);
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: rem(10);
+
+        li {
+          border-radius: rem(30);
+          background-color: $v-gray-100;
+          padding: rem(5) rem(13);
+
+          a {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: rem(5);
+            font-size: rem(14);
+            font-weight: 300;
+            line-height: rem(21);
+            color: $v-gray-200;
+          }
+
+          .circle {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $v-general;
+
+          }
+        }
+
+        @media (min-width: $breakpoint-xl) {
+          display: none;
+        }
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+        padding: 0 rem(17);
+
+        @media (min-width: $breakpoint-xl) {
+          padding: 0;
+        }
+      }
+
+      &-title {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        @media (min-width: $breakpoint-md) {
+          max-width: 50%;
+        }
+
+        p > a {
+          font-size: rem(14);
+          font-weight: 400;
+          line-height: rem(21);
+          color: $v-gray-200;
+
+          &:hover {
+            color: $v-general;
+          }
+        }
+
+        h4 > a {
+          font-size: rem(20);
+          font-weight: 300;
+          line-height: rem(27);
+          color: $v-black;
+
+          &:hover {
+            color: $v-general;
+          }
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(25);
+          }
+        }
+      }
+
+      &-description {
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: rem(21);
+        color: $v-gray-300;
+
+        @media (min-width: $breakpoint-md) {
+          max-width: 50%;
+        }
+
+        @media (min-width: $breakpoint-xl) {
+          font-size: rem(16);
+          margin-bottom: rem(10);
+        }
+      }
+    }
+
+    &-buttons {
+      gap: rem(20);
+      display: flex;
+      position: absolute;
+      right: rem(16);
+      height: rem(40);
+      margin-top: rem(3);
+
+      @media (min-width: $breakpoint-lg) {
+        top: rem(25);
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        height: rem(55);
+        margin-top: rem(11);
+        right: 0;
+      }
+    }
+  }
+
+  &__last-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(60);
+
+    @media (min-width: $breakpoint-md) {
+      gap: 0;
+    }
+
+    &--title {
+      margin-top: rem(80);
+
+      @media (min-width: $breakpoint-xl) {
+      margin-top: rem(160);
+      }
+    }
+
+    &--post {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      @media (min-width: $breakpoint-md) {
+        flex: 0 0 calc((100% - 60px) / 3);
+        &:nth-child(-n+2) {
+          flex: 0 0 calc((100% - 30px) / 2);
+        }
+
+        &:nth-child(n+3) {
+          margin-top: 120px; /* Змініть значення на потрібний вам відступ */
+        }
+
+      }
+
+      &-image {
+        width: 100%;
+        max-height: rem(410);
+        border-radius: rem(6);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: rem(6);
+
+          @media (min-width: $breakpoint-md) {
+            &:hover {
+              transition: all 0.3s ease-out;
+              transform: scale(1.05);
+            }
+          }
+
+        }
+      }
+
+      &-title {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        p > a {
+          font-size: rem(14);
+          font-weight: 400;
+          line-height: rem(21);
+          color: $v-gray-200;
+
+          &:hover {
+            color: $v-general;
+          }
+        }
+
+        h4 > a {
+          font-size: rem(20);
+          font-weight: 300;
+          line-height: rem(30);
+          color: $v-black;
+
+          &:hover {
+            color: $v-general;
+          }
+
+          @media (min-width: $breakpoint-xl) {
+            font-size: rem(25);
+            line-height: rem(38);
+          }
+        }
+      }
+    }
+  }
+
+  &__categories {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: rem(10);
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      gap: rem(20);
+    }
+
+    &--category {
+      position: relative;
+
+      &-image {
+        width: 100%;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          border-radius: rem(5);
+        }
+      }
+
+      &-name {
+        position: absolute;
+        bottom: rem(0);
+        left: rem(10);
+        font-size: rem(17);
+        font-weight: 300;
+        line-height: rem(30);
+        color: $v-white;
+
+        @media (min-width: $breakpoint-lg) {
+          font-size: rem(40);
+          line-height: rem(56);
+
+          &:hover {
+            color: $v-general;
+          }
+        }
+
+      }
+    }
+  }
+
+  &__extra-content {
+    margin-top: rem(40);
+    width: 100%;
+    max-width: rem(1410);
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-xl) {
+      margin-top: rem(80);
+    }
+
+  }
+}
