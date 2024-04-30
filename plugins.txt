@@ -1,2 +1,5 @@
-gutenberg   |	17.8.2
 carbon-fields.zip
+svg-support | 2.5.5
+updraftplus | 1.24.3
+var_dumper | 1.0.0
+wordpress-seo | 22.6
